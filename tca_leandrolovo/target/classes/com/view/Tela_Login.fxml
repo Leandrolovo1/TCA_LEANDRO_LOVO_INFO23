@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane layoutX="1.0" layoutY="1.0" prefHeight="220.0" prefWidth="480.0" snapToPixel="false" style="-fx-background-color: #FF0033;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.Tela_LoginController">
+   <children>
+      <Label layoutX="106.0" layoutY="14.0" text="Skateshop Paranaguá">
+         <font>
+            <Font name="Constantia Bold Italic" size="26.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="97.0" layoutY="132.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" onAction="#switchToTela_Vendas" pickOnBounds="false" prefHeight="25.0" prefWidth="90.0" text="Funcionário" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <effect>
+            <DropShadow height="23.0" radius="10.5" />
+         </effect>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="174.0" layoutY="83.0" snapToPixel="false" text="ENTRAR COMO:" textAlignment="CENTER" textOverrun="LEADING_WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="293.0" layoutY="132.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#switchToTela_Sistema" pickOnBounds="false" prefHeight="25.0" prefWidth="98.0" text="Administrador" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <effect>
+            <DropShadow height="23.0" radius="10.5" />
+         </effect>
+      </Button>
+      <ImageView fitHeight="79.0" fitWidth="79.0" layoutX="103.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@skater.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="81.0" fitWidth="79.0" layoutX="303.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@empresario.png" />
+         </image>
+      </ImageView>
+   </children>
+   <padding>
+      <Insets top="10.0" />
+   </padding>
+</AnchorPane>

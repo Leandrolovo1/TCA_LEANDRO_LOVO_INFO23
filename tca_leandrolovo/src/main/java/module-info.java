@@ -1,7 +1,10 @@
-module com {
+module com.example {
     requires javafx.controls;
     requires javafx.fxml;
+    requires transitive javafx.graphics;
 
-    opens com to javafx.fxml;
+    opens com.controller to javafx.fxml;
+    //opens com.view to javafx.fxml;
+
     exports com;
 }
