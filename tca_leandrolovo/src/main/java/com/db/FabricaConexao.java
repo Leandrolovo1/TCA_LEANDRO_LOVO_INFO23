@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 public class FabricaConexao {
     //private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/info23_LEANDRO";
+    private static final String URL = "jdbc:mysql://wagnerweinert.com.br:3306/info23_LEANDRO";
     private static final String USER = "info23_LEANDRO";
     private static final String PASSWORD = "info23_LEANDRO";
 
