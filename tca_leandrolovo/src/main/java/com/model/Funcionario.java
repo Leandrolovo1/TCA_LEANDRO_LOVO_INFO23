@@ -4,12 +4,23 @@ import java.sql.SQLException;
 import java.util.Date;
 
 public class Funcionario {
+    
     private int id_funcionario;
     private String nome;
     private String senha;
     private String email;
     private String telefone;
-    private Date nascimento;
+    
+    public Funcionario(String nome, String senha) {
+        this.nome = nome;
+        this.senha = senha;
+    }
+    public Funcionario(String nome, String senha, String email, String telefone) {
+        this.nome = nome;
+        this.senha = senha;
+        this.email = email;
+        this.telefone = telefone;
+    }
     public int getId_funcionario() {
         return id_funcionario;
     }
@@ -39,12 +50,6 @@ public class Funcionario {
     }
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-    public Date getNascimento()throws SQLException {
-        return nascimento;
-    }
-    public void setNascimento(Date nascimento) {
-        this.nascimento = nascimento;
     }
     
 }
