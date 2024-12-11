@@ -12,8 +12,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="800.0" style="-fx-background-color: #556280;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.Tela_LoginFuncionarioController">
    <children>
-      <Button cache="true" layoutX="349.0" layoutY="305.0" mnemonicParsing="false" onAction="#switchToTela_Principal" pickOnBounds="false" prefHeight="24.0" prefWidth="125.0" style="-fx-background-color: transparent;" text="Cadastrar-se" textAlignment="CENTER" textFill="WHITE" />
-      <Button fx:id="ButtonEntrarFuncionario" alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="364.0" layoutY="353.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#switchToTela_Principal" text="ENTRAR" textAlignment="CENTER">
+      <Button cache="true" layoutX="349.0" layoutY="305.0" mnemonicParsing="false" onAction="#switchToTela_Login_Cadastrar_Funcionario" pickOnBounds="false" prefHeight="24.0" prefWidth="125.0" style="-fx-background-color: transparent;" text="Cadastrar-se" textAlignment="CENTER" textFill="WHITE" />
+      <Button alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="427.0" layoutY="353.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#realizar_Login_Funcionario" style="-fx-background-insets: 0;" text="ENTRAR" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -43,17 +43,22 @@
             </LinearGradient>
          </stroke>
       </Line>
-      <TextField layoutX="323.0" layoutY="208.0" prefHeight="30.0" prefWidth="175.0">
+      <TextField fx:id="TF_nome_funcionario" layoutX="323.0" layoutY="208.0" prefHeight="30.0" prefWidth="175.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <PasswordField layoutX="324.0" layoutY="275.0" prefHeight="30.0" prefWidth="175.0">
+      <PasswordField fx:id="TF_senha_funcionario" layoutX="324.0" layoutY="275.0" prefHeight="30.0" prefWidth="175.0">
          <font>
             <Font size="14.0" />
          </font>
       </PasswordField>
       <Label layoutX="323.0" layoutY="191.0" text="Nome de Funcionário:" textFill="WHITE" />
       <Label layoutX="323.0" layoutY="258.0" text="Senha:" textFill="WHITE" />
+      <Button alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="302.0" layoutY="353.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#switchToTela_Principal" style="-fx-background-insets: 0;" text="VOLTAR" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

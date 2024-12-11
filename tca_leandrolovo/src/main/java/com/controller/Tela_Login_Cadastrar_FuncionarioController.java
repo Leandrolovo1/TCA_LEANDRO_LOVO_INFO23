@@ -6,16 +6,13 @@ import com.App;
 
 import javafx.fxml.FXML;
 
-public class Tela_PrincipalController {
-
-    @FXML
+public class Tela_Login_Cadastrar_FuncionarioController {
+     @FXML
     private void switchToTela_LoginFuncionario() throws IOException {
         App.setRoot("Tela_LoginFuncionario");
     }
     @FXML
-    private void switchToTela_LoginAdm() throws IOException {
-        App.setRoot("Tela_LoginAdm");
+    private void switchToTela_Principal() throws IOException {
+        App.setRoot("Tela_Principal");
     }
-    
-    
 }

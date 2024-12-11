@@ -1,1 +1,2 @@
 06/12/24 terminei as primeira telas.
+11/12/2024 mais telas, tentei fazer uma conexao ao banco de dados (nao fluiu).
