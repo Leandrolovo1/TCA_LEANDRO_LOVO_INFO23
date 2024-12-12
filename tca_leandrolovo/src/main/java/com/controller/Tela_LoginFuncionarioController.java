@@ -14,8 +14,7 @@ import javax.swing.JOptionPane;*/
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import com.model.Funcionario;
-import com.repositories.FuncionarioRepository;
-import com.DAO.FuncionarioDAOImpl;
+
 
 
 public class Tela_LoginFuncionarioController {

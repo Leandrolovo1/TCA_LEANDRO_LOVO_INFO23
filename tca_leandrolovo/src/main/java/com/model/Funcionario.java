@@ -1,8 +1,5 @@
 package com.model;
 
-import java.sql.SQLException;
-import java.util.Date;
-
 public class Funcionario {
     
     private int id_funcionario;
