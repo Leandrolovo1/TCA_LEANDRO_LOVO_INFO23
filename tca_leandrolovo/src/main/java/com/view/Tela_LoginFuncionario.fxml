@@ -12,8 +12,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="800.0" style="-fx-background-color: #556280;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.Tela_LoginFuncionarioController">
    <children>
-      <Button cache="true" layoutX="349.0" layoutY="305.0" mnemonicParsing="false" onAction="#switchToTela_Login_Cadastrar_Funcionario" pickOnBounds="false" prefHeight="24.0" prefWidth="125.0" style="-fx-background-color: transparent;" text="Cadastrar-se" textAlignment="CENTER" textFill="WHITE" />
-      <Button alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="427.0" layoutY="353.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#realizar_Login_Funcionario" style="-fx-background-insets: 0;" text="ENTRAR" textAlignment="CENTER">
+      <Button cache="true" disable="true" layoutX="349.0" layoutY="305.0" mnemonicParsing="false" onAction="#switchToTela_Funcionario" pickOnBounds="false" prefHeight="24.0" prefWidth="125.0" style="-fx-background-color: transparent;" text="Cadastrar-se" textAlignment="CENTER" textFill="WHITE" />
+      <Button alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="427.0" layoutY="353.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#realizar_Login" style="-fx-background-insets: 0;" text="ENTRAR" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

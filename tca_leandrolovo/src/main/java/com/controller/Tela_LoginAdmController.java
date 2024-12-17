@@ -32,15 +32,15 @@ public class Tela_LoginAdmController {
         
         try {
             Connection con = FabricaConexao.faz_Conexao();
-            String sql = "select * from Adm_Login where nome = ? and senha = ?";
+            String sql = "select * from Administrador where nome = ? and senha = ?";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, TF_nome_admin.getText());
             stmt.setString(2, TF_senha_admin.getText());
             
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
                 App.setRoot("Tela_Admin");
+                JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
             }else{
                 JOptionPane.showMessageDialog(null, "Login mau-sucedido!");
             }

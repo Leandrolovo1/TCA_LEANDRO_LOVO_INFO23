@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="800.0" style="-fx-background-color: #556280;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Pane layoutX="159.0" layoutY="78.0" prefHeight="398.0" prefWidth="555.0" style="-fx-background-color: #556280;">
+            <children>
+                <Label layoutX="114.0" layoutY="282.0" prefHeight="30.0" prefWidth="104.0" text="Quantidade:" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Calibri" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="114.0" layoutY="232.0" prefHeight="30.0" prefWidth="55.0" text="Preço:" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Calibri" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="114.0" layoutY="74.0" prefHeight="30.0" prefWidth="63.0" text="Marca:" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Calibri" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="114.0" layoutY="129.0" prefHeight="30.0" prefWidth="55.0" text="Nome:" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Calibri" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="114.0" layoutY="181.0" prefHeight="30.0" prefWidth="43.0" text="Tipo:" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Calibri" size="20.0" />
+                    </font>
+                </Label>
+                <TextField layoutX="114.0" layoutY="104.0" prefHeight="25.0" prefWidth="327.0" />
+                <TextField layoutX="114.0" layoutY="156.0" prefHeight="25.0" prefWidth="327.0" />
+                <TextField layoutX="114.0" layoutY="257.0" prefHeight="25.0" prefWidth="327.0" />
+                <TextField layoutX="114.0" layoutY="312.0" prefHeight="25.0" prefWidth="326.0" />
+                <MenuButton layoutX="114.0" layoutY="207.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="326.0">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Acessórios" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Calçados" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Skate" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Vestuário" />
+                    </items>
+                </MenuButton>
+                <Label layoutX="114.0" layoutY="19.0" prefHeight="30.0" prefWidth="63.0" text="Código:" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Calibri" size="20.0" />
+                    </font>
+                </Label>
+                <TextField layoutX="114.0" layoutY="49.0" prefHeight="25.0" prefWidth="327.0" />
+            </children>
+        </Pane>
+        <Label layoutX="161.0" layoutY="14.0" text="CADASTRAR PRODUTO" textFill="WHITE">
+            <font>
+                <Font name="Arial" size="48.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

@@ -41,12 +41,13 @@ public class Tela_LoginFuncionarioController {
         Funcionario funcionario = new Funcionario(nome, senha);
         
         funcionarioRepository.realizarLoginFuncionario(funcionario);
+        
 
     }
     @FXML 
-    private void switchToTela_Login_Cadastrar_Funcionario() throws IOException
+    private void switchToTela_Cadastrar_Funcionario() throws IOException
     {
-        App.setRoot("Tela_Login_Cadastrar_Funcionario");
+        App.setRoot("Tela_Cadastrar_Funcionario");
 
     }
     @FXML 

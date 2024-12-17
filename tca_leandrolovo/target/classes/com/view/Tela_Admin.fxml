@@ -1,31 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="800.0" style="-fx-background-color: #556280;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.Tela_AdminController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="800.0" style="-fx-background-color: #556280;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.Tela_AdminController">
   <tabs>
+    <Tab text="Vender">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="14.0" layoutY="490.0" mnemonicParsing="false" onAction="#switchToTela_Principal" prefHeight="27.0" prefWidth="85.0" style="-fx-background-insets: 0;" text="tela principal" />
+                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="310.0" prefWidth="464.0" AnchorPane.leftAnchor="14.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Código" />
+                        <TableColumn prefWidth="75.0" text="Marca" />
+                      <TableColumn prefWidth="75.0" text="Nome" />
+                        <TableColumn prefWidth="75.0" text="Tipo" />
+                        <TableColumn prefWidth="75.0" text="Preço" />
+                        <TableColumn prefWidth="75.0" text="Quantidade" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TableView>
+                  <Pane layoutX="495.0" layoutY="14.0" prefHeight="310.0" prefWidth="281.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                     <children>
+                        <Label layoutX="109.0" layoutY="6.0" text="CARRINHO" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Pane>
+                  <Button layoutX="236.0" layoutY="331.0" mnemonicParsing="false" onAction="#switchToTela_Principal" prefHeight="25.0" prefWidth="67.0" style="-fx-background-insets: 0;" text="Cancelar" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="331.0" />
+                  <Button layoutX="246.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchToTela_Principal" prefHeight="25.0" prefWidth="67.0" style="-fx-background-insets: 0;" text="Alterar" AnchorPane.leftAnchor="321.0" AnchorPane.rightAnchor="413.0" AnchorPane.topAnchor="331.0" />
+                  <Button layoutX="348.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchToTela_Principal" prefHeight="25.0" prefWidth="67.0" style="-fx-background-insets: 0;" text="Adicionar" AnchorPane.bottomAnchor="175.0" AnchorPane.rightAnchor="315.0" AnchorPane.topAnchor="331.0" />
+                  <Button layoutX="560.0" layoutY="336.0" mnemonicParsing="false" onAction="#switchToTela_Principal" style="-fx-background-insets: 0;" text="Ir para formas de pagamento" AnchorPane.leftAnchor="561.0" AnchorPane.rightAnchor="68.0" AnchorPane.topAnchor="331.0" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
     <Tab text="Produtos">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="331.0" layoutY="233.0" mnemonicParsing="false" onAction="#switchToTela_Principal" prefHeight="65.0" prefWidth="138.0" text="tela principal" />
+                  <TableView layoutX="143.0" layoutY="14.0" prefHeight="410.0" prefWidth="514.0">
+                     <columns>
+                        <TableColumn prefWidth="75.0" text="Código" />
+                        <TableColumn prefWidth="75.0" text="Marca" />
+                        <TableColumn prefWidth="75.0" text="Nome" />
+                        <TableColumn prefWidth="75.0" text="Tipo" />
+                        <TableColumn prefWidth="75.0" text="Preço" />
+                        <TableColumn prefWidth="75.0" text="Quantidade" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TableView>
+                  <Button fx:id="idCadastrarProduto" layoutX="544.0" layoutY="437.0" mnemonicParsing="false" onAction="#switchToTela_Cadastrar_Produto" text="Cadastrar Produto" />
+                  <Button layoutX="351.0" layoutY="437.0" mnemonicParsing="false" text="Alterar Produto" />
+                  <Button layoutX="143.0" layoutY="437.0" mnemonicParsing="false" text="Excluir Produto" />
                </children></AnchorPane>
-      </content>
-    </Tab>
-    <Tab text="Vendas">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
       </content>
     </Tab>
       <Tab text="Funcionarios">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="321.0" layoutY="464.0" mnemonicParsing="false" onAction="#switchToTela_Principal" style="-fx-background-insets: 0;" text="Cadastrar Funcionários">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <TableView layoutX="126.0" layoutY="14.0" prefHeight="450.0" prefWidth="550.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Nome" />
+                      <TableColumn prefWidth="75.0" text="E-mail" />
+                        <TableColumn prefWidth="75.0" text="Telefone" />
+                        <TableColumn prefWidth="75.0" text="Nascimento" />
+                        <TableColumn prefWidth="75.0" text="Vendas" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children></AnchorPane>
         </content>
       </Tab>
-      <Tab text="Untitled Tab">
+      <Tab text="(talvez) estatistica">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
         </content>
