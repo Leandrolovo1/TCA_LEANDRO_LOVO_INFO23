@@ -11,3 +11,8 @@ funcionario implementação e tirei os sql do controller //lembrar de estudar ma
 *18/12/24* arrumei a navegação de telas de funcionario, agora falta de admnistrador, 
 pedi pro chat comentar as linhas de alguns arquivos para melhor, explicação do que esta acontecendo,
 fiz trycatch com recourses para fechar automaticamente as conexões ao banco de dados
+
+
+/lembrete: criar uma tabela "carrinho" que recebe marca e Id da tabela produtos
+/criar model produto e etc
+/reverter classe administrador para modelo certo.
