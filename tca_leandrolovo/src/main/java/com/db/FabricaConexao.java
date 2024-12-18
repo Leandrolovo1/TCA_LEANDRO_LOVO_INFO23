@@ -26,7 +26,8 @@ public class FabricaConexao {
         }
     }
 
-    public static void closeConnection(Connection con) {
+    /*public static void closeConnection(Connection con) { /* retirei isso pois descobri que o trycatchresouces encerra a conexão ao banco de dados
+                                                            *
         try {
             if (con != null) {
                 con.close();
@@ -59,6 +60,6 @@ public class FabricaConexao {
             Logger.getLogger(FabricaConexao.class.getName()).log(Level.SEVERE, null, e);
 
         }
-    }
+    } */
 
 }

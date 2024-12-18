@@ -1,4 +1,13 @@
-06/12/24 terminei as primeira telas.
-11/12/2024 mais telas, tentei fazer uma conexao ao banco de dados (nao fluiu).
-16/12/24 consegui conectar ao banco de dados, ACHO que terminei todas telas, agora so falta o resto(TUDO), fiz o repository, 
+*06/12/24* terminei as primeira telas.
+
+
+*11/12/2024* mais telas, tentei fazer uma conexao ao banco de dados (nao fluiu).
+
+
+*16/12/24* consegui conectar ao banco de dados, ACHO que terminei todas telas, agora so falta o resto(TUDO), fiz o repository, 
 funcionario implementação e tirei os sql do controller //lembrar de estudar mais sobre.
+
+
+*18/12/24* arrumei a navegação de telas de funcionario, agora falta de admnistrador, 
+pedi pro chat comentar as linhas de alguns arquivos para melhor, explicação do que esta acontecendo,
+fiz trycatch com recourses para fechar automaticamente as conexões ao banco de dados
