@@ -36,10 +36,19 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
             stmt.setString(3, Funcionario.getSenha()); // Define a senha do funcionário
             stmt.setString(4, Funcionario.getEmail()); // Define o email do funcionário
             stmt.setString(5, Funcionario.getTelefone()); // Define o telefone do funcionário
+            try (ResultSet rs = stmt.executeQuery();){
+                if (rs.next()) {
+                    // Exibe uma mensagem informando que o cadastro foi bem-sucedido
+                    JOptionPane.showMessageDialog(null, "salvo com sucesso");           
+                }else{
+                    JOptionPane.showMessageDialog(null, "Não foi salvo");            
+                }
 
-            // Exibe uma mensagem informando que o cadastro foi bem-sucedido
-            JOptionPane.showMessageDialog(null, "salvo com sucesso");
-        } catch (Exception e) {
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+        }catch (Exception e) {
             // Caso ocorra algum erro, é registrado no log e uma mensagem de erro é exibida
             Logger.getLogger(FabricaConexao.class.getName()).log(Level.SEVERE, null, e);
             JOptionPane.showMessageDialog(null, "Erro ao salvar: " + e.getMessage());
