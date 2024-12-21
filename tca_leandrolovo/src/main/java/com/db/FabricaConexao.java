@@ -2,11 +2,8 @@ package com.db;
 
 import java.sql.Connection; // Importa a interface Connection, que representa uma conexão com o banco de dados
 import java.sql.DriverManager; // Importa a classe DriverManager, que gerencia as conexões com o banco de dados
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class FabricaConexao {
     //private static final String DRIVER = "com.mysql.cj.jdbc.Driver";

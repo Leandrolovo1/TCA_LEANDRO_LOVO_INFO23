@@ -48,6 +48,7 @@ public class Tela_LoginFuncionarioController {
         // Se o login for bem-sucedido, troca para a tela do funcionário
         if (Login_Sucesso) {
             switchToTela_Funcionario();
+            JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
         } else {
             // Caso o login falhe, exibe uma mensagem de erro
             JOptionPane.showMessageDialog(null, "Login MAU-sucedido!");

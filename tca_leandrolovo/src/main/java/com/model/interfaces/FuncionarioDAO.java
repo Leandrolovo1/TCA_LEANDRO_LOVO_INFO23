@@ -5,5 +5,6 @@ import java.sql.SQLException;
 import com.model.Funcionario;
 
 public interface FuncionarioDAO {
-    public void cadastrarFuncionario(Funcionario funcionario) throws SQLException;
+    public boolean cadastrarFuncionario(Funcionario funcionario) throws SQLException;
+    public boolean realizar_Login_Funcionario(Funcionario funcionario) throws SQLException;
 }

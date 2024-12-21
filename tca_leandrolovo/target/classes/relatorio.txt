@@ -12,7 +12,10 @@ funcionario implementação e tirei os sql do controller //lembrar de estudar ma
 pedi pro chat comentar as linhas de alguns arquivos para melhor, explicação do que esta acontecendo,
 fiz trycatch com recourses para fechar automaticamente as conexões ao banco de dados
 
+*21/12/24 arrumei a classe administrador troquei tudo para o padrao repository e etc(agora so falta produtos)
+criei o cadastrar funcionario com tudo certinho :)
+
 
 /lembrete: criar uma tabela "carrinho" que recebe marca e Id da tabela produtos
 /criar model produto e etc
-/reverter classe administrador para modelo certo.
+

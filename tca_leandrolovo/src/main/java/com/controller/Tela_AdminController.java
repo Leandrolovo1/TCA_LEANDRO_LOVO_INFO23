@@ -13,9 +13,10 @@ public class Tela_AdminController {
     private void switchToTela_Cadastrar_Produto() throws IOException {
         App.setRoot("Tela_Cadastrar_Produto");
     }
+    @FXML
+    private void switchToTela_Cadastrar_Funcionario() throws IOException {
+        App.setRoot("Tela_Cadastrar_Funcionario");
+    }
     
-    /*@FXML
-    private void realizar_LoginAdm() throws IOException {
-        App.setRoot("Tela_Admin");
-    }*/
+   
 }
