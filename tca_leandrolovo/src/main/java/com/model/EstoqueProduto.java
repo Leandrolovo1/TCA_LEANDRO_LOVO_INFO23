@@ -1,15 +1,31 @@
 package com.model;
 
 public class EstoqueProduto {
-    int idProduto;
+    int id;
+    Produtos produto;
     int quantidade;
-
-    // Construtor
-    public EstoqueProduto(int quantidade) {
+    
+    public EstoqueProduto(int id, Produtos produto, int quantidade) {
+        this.id = id;
+        this.produto = produto;
         this.quantidade = quantidade;
     }
-
+    
     // Getters e Setters
+    public int getId() {
+        return id;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    public Produtos getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produtos produto) {
+        this.produto = produto;
+    }
     public int getQuantidade() {
         return quantidade;
     }

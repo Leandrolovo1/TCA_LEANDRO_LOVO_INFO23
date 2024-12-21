@@ -5,15 +5,13 @@ public class Produtos {
     String nome_produto;
     TipoProdutoEnum tipo;
     float preco_produto;
-    EstoqueProduto estoque;
 
     
-    public Produtos(String marca_produto, String nome_produto, TipoProdutoEnum tipo, float preco_produto,EstoqueProduto estoque, int quantidade) {
+    public Produtos(String marca_produto, String nome_produto, TipoProdutoEnum tipo, float preco_produto) {
         this.marca_produto = marca_produto;
         this.nome_produto = nome_produto;
         this.tipo = tipo;
         this.preco_produto = preco_produto;
-        this.estoque = new EstoqueProduto(quantidade);
     }
     public String getMarca_produto() {
         return marca_produto;
@@ -38,12 +36,5 @@ public class Produtos {
     }
     public void setPreco_produto(float preco_produto) {
         this.preco_produto = preco_produto;
-    }
-    
-    public EstoqueProduto getEstoque() {
-        return estoque;
-    }
-    public void setEstoque(EstoqueProduto estoque) {
-        this.estoque = estoque;
     }
 }
