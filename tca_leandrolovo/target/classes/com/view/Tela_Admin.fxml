@@ -118,6 +118,16 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
+                  <Button layoutX="126.0" layoutY="464.0" mnemonicParsing="false" onAction="#switchToTela_Cadastrar_Funcionario" style="-fx-background-insets: 0;" text="Excluir Funcionários">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="538.0" layoutY="464.0" mnemonicParsing="false" onAction="#switchToTela_Cadastrar_Funcionario" style="-fx-background-insets: 0;" text="Editar Funcionários">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
                </children></AnchorPane>
         </content>
       </Tab>
