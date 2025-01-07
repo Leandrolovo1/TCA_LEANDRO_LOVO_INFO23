@@ -1,6 +1,7 @@
 package com.model;
 
 public class Administrador {
+    int id_adm;
     String nome;
     String senha;
     

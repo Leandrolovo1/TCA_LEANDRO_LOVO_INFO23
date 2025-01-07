@@ -15,6 +15,8 @@ fiz trycatch com recourses para fechar automaticamente as conexões ao banco de 
 *21/12/24 arrumei a classe administrador troquei tudo para o padrao repository e etc(agora so falta produtos)
 criei o cadastrar funcionario com tudo certinho :)
 
+*07/01/25 criei mais alguns elementos como: itens vendas e venda para gerenciar melhor controle de vendas
+(nota: quando parece q acabou sempre aparece mais coisa pra fazer)
 
 /lembrete: criar uma tabela "carrinho" que recebe marca e Id da tabela produtos
 /criar model produto e etc

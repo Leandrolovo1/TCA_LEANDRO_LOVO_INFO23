@@ -1,6 +1,7 @@
 package com.model;
 
 public class Produtos {
+    int id_produto;
     String marca_produto;
     String nome_produto;
     TipoProdutoEnum tipo;

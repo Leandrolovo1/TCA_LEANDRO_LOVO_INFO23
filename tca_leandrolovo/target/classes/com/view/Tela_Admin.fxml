@@ -13,6 +13,24 @@
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="800.0" style="-fx-background-color: #556280;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.Tela_AdminController">
   <tabs>
+      <Tab text="Home">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="577.0" layoutY="51.0" text="VENDAS" textFill="WHITE" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="60.0">
+                     <font>
+                        <Font size="37.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="422.0" layoutY="200.0" text="PRODUTOS" textFill="WHITE" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="60.0">
+                     <font>
+                        <Font size="37.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
     <Tab text="Vender">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -103,9 +121,24 @@
                </children></AnchorPane>
         </content>
       </Tab>
-      <Tab text="(talvez) estatistica">
+      <Tab text="Receita">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView layoutX="300.0" layoutY="44.0" prefHeight="487.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn editable="false" prefWidth="75.0" sortable="false" text="Id_item" />
+                      <TableColumn prefWidth="75.0" text="Id_Venda" />
+                        <TableColumn editable="false" prefWidth="75.0" sortable="false" text="Id_produto" />
+                        <TableColumn editable="false" prefWidth="75.0" sortable="false" text="quantidade" />
+                        <TableColumn editable="false" prefWidth="75.0" sortable="false" text="preco_unidade" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </AnchorPane>
         </content>
       </Tab>
   </tabs>

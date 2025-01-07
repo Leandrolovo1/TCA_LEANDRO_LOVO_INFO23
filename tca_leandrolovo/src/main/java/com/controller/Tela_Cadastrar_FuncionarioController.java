@@ -34,6 +34,10 @@ public class Tela_Cadastrar_FuncionarioController {
         App.setRoot("Tela_Principal");
     }
     @FXML
+    private void switchToTela_Admin() throws IOException {
+        App.setRoot("Tela_Admin");
+    }
+    @FXML
     private void cadastrarFuncionario() throws IOException, SQLException{
 
         funcionarioRepository = new FuncionarioRepository();

@@ -1,11 +1,11 @@
 package com.model;
 
-public class EstoqueProduto {
+public class Estoque {
     int id;
     Produtos produto;
     int quantidade;
     
-    public EstoqueProduto(int id, Produtos produto, int quantidade) {
+    public Estoque(int id, Produtos produto, int quantidade) {
         this.id = id;
         this.produto = produto;
         this.quantidade = quantidade;
