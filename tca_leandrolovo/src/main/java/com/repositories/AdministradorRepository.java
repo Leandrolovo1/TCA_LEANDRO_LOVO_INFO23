@@ -20,7 +20,4 @@ public class AdministradorRepository {
         return AdministradorDAOimpl.realizar_Login_Administrador(administrador);
     }
 
-    
-
-
 }

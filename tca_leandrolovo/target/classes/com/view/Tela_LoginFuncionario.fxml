@@ -52,7 +52,7 @@
             <Font size="14.0" />
          </font>
       </PasswordField>
-      <Label layoutX="323.0" layoutY="191.0" text="Nome de Funcionário:" textFill="WHITE" />
+      <Label layoutX="323.0" layoutY="191.0" text="ID de Funcionário:" textFill="WHITE" />
       <Label layoutX="323.0" layoutY="258.0" text="Senha:" textFill="WHITE" />
       <Button alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="302.0" layoutY="353.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#switchToTela_Principal" style="-fx-background-insets: 0;" text="VOLTAR" textAlignment="CENTER">
          <font>

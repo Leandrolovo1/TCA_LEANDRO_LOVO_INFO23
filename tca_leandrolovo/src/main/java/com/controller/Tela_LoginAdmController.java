@@ -31,6 +31,12 @@ public class Tela_LoginAdmController {
         
         String nome = TF_nome_admin.getText();
         String senha = TF_senha_admin.getText();
+
+        //verifica se os campos estao vazio!
+        if (nome.isEmpty() || senha.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.");
+            return;
+        }  
         
         Administrador administrador = new Administrador(nome, senha);
 
@@ -38,7 +44,6 @@ public class Tela_LoginAdmController {
 
         if (Login_Sucesso) {
             App.setRoot("Tela_Admin");
-            JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
         } else {
             // Caso o login falhe, exibe uma mensagem de erro
             JOptionPane.showMessageDialog(null, "Login MAU-sucedido!");

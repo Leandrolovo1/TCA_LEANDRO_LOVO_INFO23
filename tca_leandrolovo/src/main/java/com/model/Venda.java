@@ -4,13 +4,16 @@ import java.sql.Date;
 
 public class Venda {
     int id_venda;
+    int fk_if_funcionario;
     Date data_venda;
-    float total;
+    float total_venda;
+    float valor_pago;
+    float troco;
 
-    public Venda(int id_venda, Date data_venda, float total) {
+    public Venda(int id_venda, Date data_venda, float total_venda) {
         this.id_venda = id_venda;
         this.data_venda = data_venda;
-        this.total = total;
+        this.total_venda = total_venda;
     }
     
     public int getId_venda() {
@@ -26,10 +29,10 @@ public class Venda {
         this.data_venda = data_venda;
     }
     public float getTotal() {
-        return total;
+        return total_venda;
     }
-    public void setTotal(float total) {
-        this.total = total;
+    public void setTotal(float total_venda) {
+        this.total_venda = total_venda;
     }
 
 }

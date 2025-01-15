@@ -17,8 +17,8 @@ public class FabricaConexao {
             //Class.forName(DRIVER);
             Class.forName("com.mysql.cj.jdbc.Driver");
             return DriverManager.getConnection(URL, USER, PASSWORD);
-        } catch (ClassNotFoundException | SQLException e) {
-            // TODO: handle exception
+        } catch (ClassNotFoundException | SQLException e) 
+        {
             throw new RuntimeException("Erro na conexão!", e);
         }
     }

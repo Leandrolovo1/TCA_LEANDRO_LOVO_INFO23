@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -12,61 +10,51 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="800.0" style="-fx-background-color: #556280;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.Tela_Cadastrar_Produto_Controller">
     <children>
-        <Pane layoutX="159.0" layoutY="78.0" prefHeight="398.0" prefWidth="555.0" style="-fx-background-color: #556280;">
+        <Pane layoutX="123.0" layoutY="69.0" prefHeight="398.0" prefWidth="555.0" style="-fx-background-color: #556280;">
             <children>
-                <Label layoutX="114.0" layoutY="282.0" prefHeight="30.0" prefWidth="104.0" text="Quantidade:" textAlignment="CENTER" textFill="WHITE">
+                <Label layoutX="114.0" layoutY="222.0" prefHeight="30.0" prefWidth="104.0" text="Preço:" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font name="Calibri" size="20.0" />
                     </font>
                 </Label>
-                <Label layoutX="114.0" layoutY="232.0" prefHeight="30.0" prefWidth="55.0" text="Preço:" textAlignment="CENTER" textFill="WHITE">
+                <Label layoutX="114.0" layoutY="172.0" prefHeight="30.0" prefWidth="104.0" text="Quantidade:" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font name="Calibri" size="20.0" />
                     </font>
                 </Label>
-                <Label layoutX="114.0" layoutY="74.0" prefHeight="30.0" prefWidth="63.0" text="Marca:" textAlignment="CENTER" textFill="WHITE">
+                <Label layoutX="114.0" layoutY="14.0" prefHeight="30.0" prefWidth="63.0" text="Nome:" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font name="Calibri" size="20.0" />
                     </font>
                 </Label>
-                <Label layoutX="114.0" layoutY="129.0" prefHeight="30.0" prefWidth="55.0" text="Nome:" textAlignment="CENTER" textFill="WHITE">
+                <Label layoutX="114.0" layoutY="69.0" prefHeight="30.0" prefWidth="59.0" text="Marca:" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font name="Calibri" size="20.0" />
                     </font>
                 </Label>
-                <Label layoutX="114.0" layoutY="181.0" prefHeight="30.0" prefWidth="43.0" text="Tipo:" textAlignment="CENTER" textFill="WHITE">
+                <Label layoutX="114.0" layoutY="121.0" prefHeight="30.0" prefWidth="91.0" text="Categoria:" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font name="Calibri" size="20.0" />
                     </font>
                 </Label>
-                <TextField layoutX="114.0" layoutY="104.0" prefHeight="25.0" prefWidth="327.0" />
-                <TextField layoutX="114.0" layoutY="156.0" prefHeight="25.0" prefWidth="327.0" />
-                <TextField layoutX="114.0" layoutY="257.0" prefHeight="25.0" prefWidth="327.0" />
-                <TextField layoutX="114.0" layoutY="312.0" prefHeight="25.0" prefWidth="326.0" />
-                <MenuButton layoutX="114.0" layoutY="207.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="326.0">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Acessórios" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Calçados" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Skate" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Vestuário" />
-                    </items>
-                </MenuButton>
-                <Label layoutX="114.0" layoutY="19.0" prefHeight="30.0" prefWidth="63.0" text="Código:" textAlignment="CENTER" textFill="WHITE">
-                    <font>
-                        <Font name="Calibri" size="20.0" />
-                    </font>
-                </Label>
-                <TextField layoutX="114.0" layoutY="49.0" prefHeight="25.0" prefWidth="327.0" />
-            <Button layoutX="116.0" layoutY="359.0" mnemonicParsing="false" onAction="#switchToTela_Admin" text="VOLTAR" />
-            <Button layoutX="357.0" layoutY="359.0" mnemonicParsing="false" onAction="#switchToTela_Admin" text="CADASTRAR" />
+                <TextField fx:id="TF_nome_produto" layoutX="114.0" layoutY="44.0" prefHeight="25.0" prefWidth="327.0" />
+                <TextField fx:id="TF_marca_produto" layoutX="114.0" layoutY="96.0" prefHeight="25.0" prefWidth="327.0" />
+                <TextField fx:id="TF_quantidade_produto" layoutX="114.0" layoutY="197.0" prefHeight="25.0" prefWidth="327.0" />
+                <TextField fx:id="TF_preco_produto" layoutX="114.0" layoutY="252.0" prefHeight="25.0" prefWidth="326.0" />
+            <Button layoutX="64.0" layoutY="299.0" mnemonicParsing="false" onAction="#switchToTela_Admin" text="VOLTAR">
+               <font>
+                  <Font size="20.0" />
+               </font></Button>
+            <Button layoutX="379.0" layoutY="299.0" mnemonicParsing="false" onAction="#cadastrarProduto" text="CONCLUIR">
+               <font>
+                  <Font size="20.0" />
+               </font></Button>
+            <ComboBox fx:id="COMBOBOX_tipo_produto" layoutX="114.0" layoutY="151.0" prefHeight="25.0" prefWidth="326.0" promptText="Escolha a Categoria:" />
             </children>
         </Pane>
-        <Label layoutX="161.0" layoutY="14.0" text="CADASTRAR PRODUTO" textFill="WHITE">
+        <Label layoutX="244.0" layoutY="14.0" text="Cadastro Produto" textFill="WHITE">
             <font>
-                <Font name="Arial" size="48.0" />
+                <Font name="System Bold Italic" size="38.0" />
             </font>
         </Label>
     </children>

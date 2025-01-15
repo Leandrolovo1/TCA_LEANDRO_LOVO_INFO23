@@ -12,12 +12,12 @@
 
 <AnchorPane layoutX="1.0" layoutY="1.0" prefHeight="560.0" prefWidth="800.0" snapToPixel="false" style="-fx-background-color: #556280;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.Tela_PrincipalController">
    <children>
-      <Label layoutX="89.0" layoutY="14.0" text="Skateshop do Cabelo">
+      <Label layoutX="89.0" layoutY="14.0" prefHeight="76.0" prefWidth="623.0" text="Skateshop do Cabelo" AnchorPane.leftAnchor="89.0" AnchorPane.rightAnchor="88.0">
          <font>
             <Font name="Constantia Bold Italic" size="64.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="219.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" onAction="#switchToTela_LoginFuncionario" pickOnBounds="false" prefHeight="53.0" prefWidth="196.0" text="Funcionário" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="219.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" onAction="#switchToTela_LoginFuncionario" pickOnBounds="false" prefHeight="53.0" prefWidth="196.0" text="Funcionário" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="85.0">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -25,7 +25,7 @@
             <DropShadow height="23.0" radius="10.5" />
          </effect>
       </Button>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="277.0" layoutY="90.0" snapToPixel="false" text="ENTRAR COMO:" textAlignment="CENTER" textOverrun="LEADING_WORD_ELLIPSIS">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="230.0" layoutY="90.0" prefHeight="53.0" prefWidth="367.0" snapToPixel="false" text="ENTRAR COMO:" textAlignment="CENTER" textOverrun="LEADING_WORD_ELLIPSIS" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="230.0">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -33,7 +33,7 @@
             <Bloom />
          </effect>
       </Label>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="546.0" layoutY="219.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#switchToTela_LoginAdm" pickOnBounds="false" prefHeight="53.0" prefWidth="196.0" text="Administrador" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="546.0" layoutY="219.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#switchToTela_LoginAdm" pickOnBounds="false" prefHeight="53.0" prefWidth="196.0" text="Administrador" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" AnchorPane.rightAnchor="85.0">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -43,12 +43,12 @@
       </Button>
       <ImageView fitHeight="170.0" fitWidth="156.0" layoutX="105.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@skater.png" />
+            <Image url="@../images/skater.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="156.0" fitWidth="167.0" layoutX="566.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="156.0" fitWidth="167.0" layoutX="539.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="105.0">
          <image>
-            <Image url="@empresario.png" />
+            <Image url="@../images/empresario.png" />
          </image>
       </ImageView>
    </children>

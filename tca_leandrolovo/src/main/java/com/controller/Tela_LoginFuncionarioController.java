@@ -12,10 +12,10 @@ import com.model.Funcionario;
 public class Tela_LoginFuncionarioController {
 
     // Declaração dos campos de texto onde o nome e a senha serão inseridos
-    @FXML 
+    @FXML
     private TextField TF_nome_funcionario;
 
-    @FXML 
+    @FXML
     private TextField TF_senha_funcionario;
 
     // Instância do repositório de funcionários para gerenciar a lógica de login
@@ -36,11 +36,25 @@ public class Tela_LoginFuncionarioController {
         funcionarioRepository = new FuncionarioRepository();
 
         // Obtém os dados inseridos pelo usuário nos campos de texto
-        String nome = TF_nome_funcionario.getText();
+        String id_funcionarioString = TF_nome_funcionario.getText();
         String senha = TF_senha_funcionario.getText();
 
+        // verifica se os campos estao vazio!
+        if (id_funcionarioString.isEmpty() || senha.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.");
+            return;
+        }
+
+        int id_funcionario = -1; // Valor padrão para erro de conversão
+        try {
+            id_funcionario = Integer.parseInt(id_funcionarioString); // Converte para inteiro
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "ID do funcionário deve ser um número inteiro válido.");
+            return; // Retorna sem tentar fazer login
+        }
+
         // Cria um objeto Funcionario com os dados fornecidos pelo usuário
-        Funcionario funcionario = new Funcionario(nome, senha);
+        Funcionario funcionario = new Funcionario(id_funcionario, senha);
 
         // Chama o método de login do repositório, passando o objeto Funcionario
         boolean Login_Sucesso = funcionarioRepository.realizarLoginFuncionario(funcionario);
@@ -48,7 +62,6 @@ public class Tela_LoginFuncionarioController {
         // Se o login for bem-sucedido, troca para a tela do funcionário
         if (Login_Sucesso) {
             switchToTela_Funcionario();
-            JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
         } else {
             // Caso o login falhe, exibe uma mensagem de erro
             JOptionPane.showMessageDialog(null, "Login MAU-sucedido!");
@@ -56,14 +69,14 @@ public class Tela_LoginFuncionarioController {
     }
 
     // Método que alterna para a tela de cadastro de funcionários
-    @FXML 
+    @FXML
     private void switchToTela_Cadastrar_Funcionario() throws IOException {
         // Muda a tela para "Tela_Cadastrar_Funcionario"
         App.setRoot("Tela_Cadastrar_Funcionario");
     }
 
     // Método que alterna para a tela do funcionário (após login bem-sucedido)
-    @FXML 
+    @FXML
     private void switchToTela_Funcionario() throws IOException {
         // Muda a tela para "Tela_Funcionario"
         App.setRoot("Tela_Funcionario");

@@ -11,19 +11,10 @@ import com.db.FabricaConexao;
 import com.model.Funcionario;
 import com.model.interfaces.FuncionarioDAO;
 
-public class FuncionarioDAOImpl implements FuncionarioDAO {
-
-    // Atributo para armazenar a conexão com o banco de dados
-    /*private Connection con;
-
-    // Construtor que inicializa a conexão com o banco de dados
-    public FuncionarioDAOImpl() throws SQLException {
-        // Estabelece a conexão com o banco chamando o método 'faz_Conexao' da classe 'FabricaConexao'
-        this.con = FabricaConexao.faz_Conexao();
-    }*/
-
-    // Método para cadastrar um novo funcionário no banco de dados
-    public boolean cadastrarFuncionario(Funcionario Funcionario) throws SQLException {
+public class FuncionarioDAOImpl implements FuncionarioDAO 
+{
+    public boolean cadastrarFuncionario(Funcionario Funcionario) throws SQLException 
+    {
 
         // Definindo a query SQL para inserir um novo funcionário
         String sql = "INSERT INTO Funcionario (nome, senha, email, telefone) VALUES (?, ?, ?, ? )";
@@ -61,7 +52,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
     // Método para realizar o login do funcionário
     public boolean realizar_Login_Funcionario(Funcionario funcionario) throws SQLException {
 
-        String sql = "select * from Funcionario where nome = ? and senha = ?";
+        String sql = "select * from Funcionario where id_funcionario = ? and senha = ?";
 
         try (Connection con = FabricaConexao.faz_Conexao(); PreparedStatement stmt = con.prepareStatement(sql) ){
 
@@ -70,7 +61,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
              * Substitui os parâmetros '?' com os valores do objeto 'Funcionario'
              * */
 
-            stmt.setString(1, funcionario.getNome());  // Substitui o primeiro '?' com o nome
+            stmt.setInt(1, funcionario.getId_funcionario());  // Substitui o primeiro '?' com o nome
             stmt.setString(2, funcionario.getSenha()); // Substitui o segundo '?' com a senha
 
 

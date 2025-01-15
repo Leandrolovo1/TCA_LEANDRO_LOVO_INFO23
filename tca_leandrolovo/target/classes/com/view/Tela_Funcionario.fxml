@@ -21,7 +21,7 @@
                         <TableColumn prefWidth="75.0" text="Código" />
                         <TableColumn prefWidth="75.0" text="Marca" />
                       <TableColumn prefWidth="75.0" text="Nome" />
-                        <TableColumn prefWidth="75.0" text="Tipo" />
+                        <TableColumn prefWidth="75.0" text="Categoria" />
                         <TableColumn prefWidth="75.0" sortable="false" text="Preço" />
                         <TableColumn prefWidth="75.0" text="Quantidade" />
                     </columns>
