@@ -9,7 +9,7 @@ funcionario implementação e tirei os sql do controller //lembrar de estudar ma
 
 
 *18/12/24* arrumei a navegação de telas de funcionario, agora falta de admnistrador, 
-pedi pro chat comentar as linhas de alguns arquivos para melhor, explicação do que esta acontecendo,
+pedi pro chat comentar as linhas de alguns arquivos para melhor explicação do que esta acontecendo,
 fiz trycatch com recourses para fechar automaticamente as conexões ao banco de dados
 
 *21/12/24 arrumei a classe administrador troquei tudo para o padrao repository e etc(agora so falta produtos)
@@ -23,6 +23,8 @@ e verificando tambem caso o usuario insira campos vazios
 
 15/01/25 criei view e store procedure, fiz o create de produtos (criando produto e em seguida o estoque do mesmo com a store procedure)
 irei preencher a tabela produtos na interface grafica, colocando o total de produtos no momento.
-/lembrete: criar uma tabela "carrinho" que recebe marca e Id da tabela produtos
-/criar model produto e etc
+
+16/01/25 preenchi adequadamente as tabelas (interface grafica) funcionario e produtos da tela do admin, faltando apenas colocar as funçoes de click
+
+
 

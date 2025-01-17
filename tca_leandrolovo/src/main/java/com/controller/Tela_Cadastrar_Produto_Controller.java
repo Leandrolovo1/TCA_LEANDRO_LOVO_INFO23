@@ -32,8 +32,8 @@ public class Tela_Cadastrar_Produto_Controller {
         // Preenchendo o ComboBox com as opções
         COMBOBOX_tipo_produto.getItems().add("Acessórios");
         COMBOBOX_tipo_produto.getItems().add("Calçados");
-        COMBOBOX_tipo_produto.getItems().add("Confecção");
         COMBOBOX_tipo_produto.getItems().add("Skate");
+        COMBOBOX_tipo_produto.getItems().add("Vestuário");
     }
 
     @FXML
@@ -45,6 +45,7 @@ public class Tela_Cadastrar_Produto_Controller {
     private void cadastrarProduto() throws IOException, SQLException 
     {
         produtoRepository = new ProdutoRepository();
+
         String nome_produto = TF_nome_produto.getText();
         String marca_produto = TF_marca_produto.getText();
         String categoria_produto = COMBOBOX_tipo_produto.getValue();

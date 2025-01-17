@@ -35,13 +35,14 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="Tb_Produtos" layoutX="143.0" layoutY="14.0" prefHeight="410.0" prefWidth="514.0">
+                  <TableView fx:id="Tb_Produtos" layoutX="132.0" layoutY="14.0" prefHeight="425.0" prefWidth="536.0">
                      <columns>
+                        <TableColumn fx:id="CL_ID_produto" editable="false" prefWidth="75.0" text="ID" />
                         <TableColumn fx:id="CL_nome_produto" prefWidth="75.0" text="Nome" />
-                        <TableColumn fx:id="CL_marca_produto" prefWidth="75.0" text="Marca" />
-                        <TableColumn fx:id="CL_categoria_produto" prefWidth="75.0" text="Categoria" />
-                        <TableColumn fx:id="CL_preco_produto" prefWidth="75.0" text="Preço" />
-                        <TableColumn fx:id="CL_quantidade_produto" prefWidth="75.0" text="Quantidade" />
+                        <TableColumn fx:id="CL_marca_produto" editable="false" prefWidth="75.0" text="Marca" />
+                        <TableColumn fx:id="CL_categoria_produto" editable="false" prefWidth="75.0" sortable="false" text="Categoria" />
+                        <TableColumn fx:id="CL_preco_produto" editable="false" prefWidth="75.0" text="Preço" />
+                        <TableColumn fx:id="CL_quantidade_produto" editable="false" prefWidth="75.0" text="Quantidade" />
                      </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -65,13 +66,13 @@
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <TableView layoutX="126.0" layoutY="14.0" prefHeight="450.0" prefWidth="550.0">
+                  <TableView fx:id="Tb_Funcionarios" layoutX="126.0" layoutY="14.0" prefHeight="450.0" prefWidth="550.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Nome" />
-                      <TableColumn prefWidth="75.0" text="E-mail" />
-                        <TableColumn prefWidth="75.0" text="Telefone" />
-                        <TableColumn prefWidth="75.0" text="Nascimento" />
-                        <TableColumn prefWidth="75.0" text="Vendas" />
+                      <TableColumn fx:id="CL_ID_funcionario" prefWidth="75.0" text="ID" />
+                      <TableColumn fx:id="CL_nome_funcionario" prefWidth="75.0" text="Nome" />
+                        <TableColumn fx:id="CL_email_funcionario" prefWidth="75.0" text="Email" />
+                        <TableColumn fx:id="CL_telefone_funcionario" prefWidth="75.0" text="Telefone" />
+                        <TableColumn fx:id="CL_numero_vendas_produto" prefWidth="75.0" text="Numero_vendas" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

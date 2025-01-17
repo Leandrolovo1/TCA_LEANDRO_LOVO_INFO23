@@ -8,7 +8,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
-
 import com.db.FabricaConexao;
 import com.model.Estoque;
 import com.model.Produtos;
@@ -28,7 +27,7 @@ public class ProdutoDAOImpl implements ProdutoDAO {
 
             stmt.setString(1, produto.getNome_produto()); // Define o nome do funcionário
             stmt.setString(2, produto.getMarca_produto());
-            stmt.setObject(3, produto.getcategoria_produto());
+            stmt.setObject(3, produto.getCategoria_produto());
             stmt.setFloat(4, produto.getPreco_produto());
             stmt.setInt(5, estoque.getQuantidade());
             stmt.setString(6, estoque.getTipo_movimentacao());
@@ -54,7 +53,9 @@ public class ProdutoDAOImpl implements ProdutoDAO {
     }
 
     public ObservableList<Produtos> preencher_Tabela_Produtos(){
-        String sql = "SELECT * FROM view_produtos_estoque";
+
+        //*view*//
+        String sql = "SELECT * FROM view_produtos_estoque_total";
 
         try (Connection con = FabricaConexao.faz_Conexao(); PreparedStatement stmt = con.prepareStatement(sql)) {
             ResultSet rs = stmt.executeQuery(sql);
@@ -65,10 +66,10 @@ public class ProdutoDAOImpl implements ProdutoDAO {
                     rs.getString("nome_produto"),
                     rs.getString("marca"),
                     rs.getString("categoria"),
-                    rs.getFloat("preco_unidade")));
-                listaProdutos.add(new Estoque(
-                    rs.getInt("quantidade")));
+                    rs.getFloat("preco_produto"),
+                    rs.getInt("quantidade_total")));
             }
+            
             //tableViewProdutos.setItems(listaProdutos);
             
         } catch (Exception e) {
