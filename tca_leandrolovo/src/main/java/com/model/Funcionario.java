@@ -3,14 +3,13 @@ package com.model;
 public class Funcionario {
     
     private int id_funcionario;
-    private int fk_id_funcionario = 1;
+    private int fk_id_Adm = 1;
     private String nome;
     private String senha;
     private String email;
     private String telefone;
     private int numero_vendas;
-    
-    
+
     public Funcionario(int id_funcionario, String nome, String email, String telefone, int numero_vendas) {
         this.id_funcionario = id_funcionario;
         this.nome = nome;
@@ -19,8 +18,8 @@ public class Funcionario {
         this.numero_vendas = numero_vendas;
     }
     
-    public Funcionario(int fk_id_funcionario, String nome, String senha) {
-        this.fk_id_funcionario = fk_id_funcionario;
+    public Funcionario(int fk_id_Adm, String nome, String senha) {
+        this.fk_id_Adm = fk_id_Adm;
         this.nome = nome;
         this.senha = senha;
     }
@@ -41,12 +40,16 @@ public class Funcionario {
         this.nome = nome;
         this.senha = senha;
     }
-    public int getFk_id_funcionario() {
-        return fk_id_funcionario;
+
+    public Funcionario(int id_funcionario) {
+        this.id_funcionario = id_funcionario;
+    }
+    public int getFk_id_Adm() {
+        return fk_id_Adm;
     }
     
-    public void setFk_id_funcionario(int fk_id_funcionario) {
-        this.fk_id_funcionario = fk_id_funcionario;
+    public void setFk_id_Adm(int fk_id_Adm) {
+        this.fk_id_Adm = fk_id_Adm;
     }
     
     public int getId_funcionario() {

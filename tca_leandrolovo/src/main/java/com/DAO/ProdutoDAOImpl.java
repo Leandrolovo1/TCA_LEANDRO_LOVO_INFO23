@@ -16,15 +16,18 @@ import com.model.interfaces.ProdutoDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ProdutoDAOImpl implements ProdutoDAO {
+public class ProdutoDAOImpl implements ProdutoDAO 
+{
     private ObservableList<Produtos> listaProdutos = FXCollections.observableArrayList();
-    public boolean cadastrarProduto(Produtos produto, Estoque estoque) throws SQLException {
+
+    public boolean cadastrarProduto(Produtos produto, Estoque estoque) throws SQLException 
+    {
         // Definindo a query SQL para inserir um novo funcionário
         String sql = "CALL inserir_produto_e_estoque(?,?,?,?,?,?)";
 
-        try (Connection con = FabricaConexao.faz_Conexao(); PreparedStatement stmt = con.prepareStatement(sql)) {
+        try (Connection con = FabricaConexao.faz_Conexao(); PreparedStatement stmt = con.prepareStatement(sql)) 
+        {
             // Prepara a instrução SQL para execução
-
             stmt.setString(1, produto.getNome_produto()); // Define o nome do funcionário
             stmt.setString(2, produto.getMarca_produto());
             stmt.setObject(3, produto.getCategoria_produto());
@@ -48,12 +51,11 @@ public class ProdutoDAOImpl implements ProdutoDAO {
             Logger.getLogger(FabricaConexao.class.getName()).log(Level.SEVERE, null, e);
             JOptionPane.showMessageDialog(null, "Erro ao salvar: " + e.getMessage());
             return false;
-
         }
     }
 
-    public ObservableList<Produtos> preencher_Tabela_Produtos(){
-
+    public ObservableList<Produtos> preencher_Tabela_Produtos()
+    {
         //*view*//
         String sql = "SELECT * FROM view_produtos_estoque_total";
 
@@ -64,13 +66,11 @@ public class ProdutoDAOImpl implements ProdutoDAO {
                 listaProdutos.add(new Produtos(
                     rs.getInt("id_produto"), 
                     rs.getString("nome_produto"),
-                    rs.getString("marca"),
                     rs.getString("categoria"),
+                    rs.getString("marca"),
                     rs.getFloat("preco_produto"),
                     rs.getInt("quantidade_total")));
             }
-            
-            //tableViewProdutos.setItems(listaProdutos);
             
         } catch (Exception e) {
             e.printStackTrace();

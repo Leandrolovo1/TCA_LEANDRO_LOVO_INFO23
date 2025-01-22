@@ -6,38 +6,42 @@ import javax.swing.JOptionPane;
 import com.App;
 import com.model.Administrador;
 import com.repositories.AdministradorRepository;
+
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.fxml.FXML;
 
-
 public class Tela_LoginAdmController {
-    
-    @FXML 
+
+    @FXML
     private TextField TF_nome_admin;
-    @FXML 
+    @FXML
     private TextField TF_senha_admin;
+    @FXML
+    private Button btnEntrar;
 
     AdministradorRepository administradorRepository;
+    
 
     @FXML
     private void switchToTela_Principal() throws IOException {
         App.setRoot("Tela_Principal");
     }
-    
+
     @FXML
     private void realizar_LoginAdm() throws IOException, SQLException {
-        
+
         administradorRepository = new AdministradorRepository();
-        
+
         String nome = TF_nome_admin.getText();
         String senha = TF_senha_admin.getText();
 
-        //verifica se os campos estao vazio!
+        // verifica se os campos estao vazio!
         if (nome.isEmpty() || senha.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.");
             return;
-        }  
-        
+        }
+
         Administrador administrador = new Administrador(nome, senha);
 
         boolean Login_Sucesso = administradorRepository.realizarLoginAdministrador(administrador);

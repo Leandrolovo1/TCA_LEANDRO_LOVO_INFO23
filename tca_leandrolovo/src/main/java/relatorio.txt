@@ -12,19 +12,30 @@ funcionario implementação e tirei os sql do controller //lembrar de estudar ma
 pedi pro chat comentar as linhas de alguns arquivos para melhor explicação do que esta acontecendo,
 fiz trycatch com recourses para fechar automaticamente as conexões ao banco de dados
 
+
 *21/12/24 arrumei a classe administrador troquei tudo para o padrao repository e etc(agora so falta produtos)
 criei o cadastrar funcionario com tudo certinho :)
 
-*06/01/25 criei mais alguns elementos como: itens vendas e venda para gerenciar melhor controle de vendas criei os gets e setters dos novos modelos
+
+*06/01/25 criei mais alguns elementos como: itens vendas e venda para gerenciar melhor controle de vendas 
+criei os gets e setters dos novos modelos
 (nota: quando parece q acabou sempre aparece mais coisa pra fazer)
 
-14/01/25 terminei os diagramas de banco de dados e modifiquei as tela de login, fazendo com que cada funcionario entre com seu id e senha
+
+14/01/25 terminei os diagramas de banco de dados e modifiquei as tela de login,
+fazendo com que cada funcionario entre com seu id e senha
 e verificando tambem caso o usuario insira campos vazios
 
-15/01/25 criei view e store procedure, fiz o create de produtos (criando produto e em seguida o estoque do mesmo com a store procedure)
+
+*15/01/25 criei view e store procedure, fiz o create de produtos 
+(criando produto e em seguida o estoque do mesmo com a store procedure)
 irei preencher a tabela produtos na interface grafica, colocando o total de produtos no momento.
 
-16/01/25 preenchi adequadamente as tabelas (interface grafica) funcionario e produtos da tela do admin, faltando apenas colocar as funçoes de click
 
+*16/01/25 preenchi adequadamente as tabelas (interface grafica) funcionario e produtos da tela do admin,
+ faltando apenas colocar as funçoes de click
+
+
+*21/01/25 terminei o crud de funcionario e adiocinei mensagens de confirmação(excluir).
 
 

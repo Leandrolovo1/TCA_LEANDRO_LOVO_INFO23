@@ -2,13 +2,19 @@ package com.model;
 
 public class Produtos {
     private int id_produto;
-    
     private String nome_produto;
     private String categoria_produto;
     private String marca_produto;
     private float preco_produto;
     private int quantidade;
     
+    @Override
+    public String toString() {
+        return "Produtos [id_produto=" + id_produto + ", nome_produto=" + nome_produto + ", categoria_produto="
+                + categoria_produto + ", marca_produto=" + marca_produto + ", preco_produto=" + preco_produto
+                + ", quantidade=" + quantidade + "]";
+    }
+
     public Produtos(int id_produto, String nome_produto, String categoria_produto, String marca_produto, float preco_produto, int quantidade) {
         this.id_produto = id_produto;
         this.nome_produto = nome_produto;

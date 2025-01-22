@@ -9,6 +9,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.Locale;
 
 /**
  * JavaFX App
@@ -40,7 +41,7 @@ public class App extends Application {
         return fxmlLoader.load();
     }
     public static void main(String[] args) {
-        
+        Locale.setDefault(new Locale("pt", "BR"));
         launch();
     }
 

@@ -3,6 +3,8 @@ package com.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import com.App;
 import com.model.Produtos;
 import com.model.Funcionario;
@@ -17,6 +19,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Tela_AdminController {
+
     ProdutoRepository produtoRepository;
     @FXML
     private TableView<Produtos> Tb_Produtos;
@@ -52,16 +55,99 @@ public class Tela_AdminController {
     private ObservableList<Funcionario> listaFuncionarios = FXCollections.observableArrayList();
 
     @FXML
-    public void initialize() throws IOException, SQLException {
-        produtoRepository = new ProdutoRepository();
-        configurarColunas_produtos();
-        listaProdutos = produtoRepository.preencher_Tabela_Produtos();
-        Tb_Produtos.setItems(listaProdutos);
-        /////////////////////////////////////////
-        funcionarioRepository = new FuncionarioRepository();
-        configurarColunas_funcionarios();
-        listaFuncionarios = funcionarioRepository.preencher_Tabela_Funcionarios();
-        Tb_Funcionarios.setItems(listaFuncionarios);
+    public void initialize() {
+        try {
+            produtoRepository = new ProdutoRepository();
+            configurarColunas_produtos();
+            listaProdutos = produtoRepository.preencher_Tabela_Produtos();
+            Tb_Produtos.setItems(listaProdutos);
+            /////////////////////////////////////////
+            funcionarioRepository = new FuncionarioRepository();
+            configurarColunas_funcionarios();
+            listaFuncionarios = funcionarioRepository.preencher_Tabela_Funcionarios();
+            Tb_Funcionarios.setItems(listaFuncionarios);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Erro ao carregar os dados do banco: " + e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Erro inesperado: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    public void editarFuncionario() throws SQLException {
+        Funcionario funcionario = Tb_Funcionarios.getSelectionModel().getSelectedItem();
+        if (funcionario == null) {
+            JOptionPane.showMessageDialog(null, "Nenhum Funcionario foi selecionado.");
+            return;
+        }
+        String[] opcaoColunas = { "nome", "email", "telefone", "senha" };
+        int opcaoEscolhida = JOptionPane.showOptionDialog(null, "Escolha uma opção:", "Coluna:",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcaoColunas, opcaoColunas[0]);
+        if (opcaoEscolhida == -1)
+            return;
+        String Coluna = opcaoColunas[opcaoEscolhida];
+
+        int id = funcionario.getId_funcionario();
+        String colunaUpdate = JOptionPane.showInputDialog("Digite a alteração");
+        Funcionario funcionarioID = new Funcionario(id, colunaUpdate);
+        boolean update_sucesso = funcionarioRepository.atualizarFuncionario(funcionarioID, Coluna);
+
+        if (update_sucesso) {
+            // Encontra o índice do funcionário na lista usando o método indexOf
+            int index = listaFuncionarios.indexOf(funcionario);
+            // Verifica se o funcionário foi encontrado na lista (índice diferente de -1 significa que o funcionário existe na lista)
+            if (index != -1) {
+                // Dependendo da coluna que foi escolhida, o código modifica a propriedade correspondente do funcionário
+                // Verifica se a coluna escolhida é "nome" e atualiza o nome do funcionário
+                if (Coluna.equals("nome")) {
+                    funcionario.setNome(colunaUpdate); // Atualiza o nome do funcionário com o novo valor (colunaUpdate)
+                } 
+                // Verifica se a coluna escolhida é "email" e atualiza o email do funcionário
+                else if (Coluna.equals("email")) {
+                    funcionario.setEmail(colunaUpdate); // Atualiza o email do funcionário com o novo valor
+                } 
+                // Verifica se a coluna escolhida é "telefone" e atualiza o telefone do funcionário
+                else if (Coluna.equals("telefone")) {
+                    funcionario.setTelefone(colunaUpdate); // Atualiza o telefone do funcionário com o novo valor
+                }
+                // Atualiza o item na lista (listaFuncionarios) no índice encontrado, com o funcionário modificado
+                listaFuncionarios.set(index, funcionario);  // Reflete a mudança na tabela (essa mudança será vista na UI automaticamente)
+            }
+            Tb_Funcionarios.getSelectionModel().clearSelection(); // Limpar seleção
+            JOptionPane.showMessageDialog(null, "Funcionário atualizado com sucesso.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizado funcionário!");
+        }
+
+    }
+
+    @FXML
+    public void excluirFuncionario() throws IOException, SQLException {
+        Funcionario funcionario = Tb_Funcionarios.getSelectionModel().getSelectedItem();
+        if (funcionario == null) {
+            JOptionPane.showMessageDialog(null, "Nenhum Funcionario foi selecionado.");
+            return;
+        }
+
+        int mensagemConfirmacao = JOptionPane.showConfirmDialog(null,
+                "Tem certeza que deseja excluir esse funcionario ?", "ATENÇÃO!", JOptionPane.YES_NO_OPTION,
+                JOptionPane.ERROR_MESSAGE);
+        if (mensagemConfirmacao == JOptionPane.NO_OPTION || mensagemConfirmacao == JOptionPane.CLOSED_OPTION)
+            return;
+
+        int id = funcionario.getId_funcionario();
+        Funcionario funcionarioID = new Funcionario(id);
+        boolean delete_sucesso = funcionarioRepository.deletarFuncionario(funcionarioID);
+
+        if (delete_sucesso) {
+            listaFuncionarios.remove(funcionario);
+            Tb_Funcionarios.getSelectionModel().clearSelection(); // Limpar seleção
+            JOptionPane.showMessageDialog(null, "Funcionário excluído com sucesso.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir funcionário!");
+        }
     }
 
     private void configurarColunas_produtos() {
@@ -89,7 +175,6 @@ public class Tela_AdminController {
     @FXML
     private void switchToTela_Cadastrar_Produto() throws IOException {
         App.setRoot("Tela_Cadastrar_Produto");
-
     }
 
     @FXML

@@ -49,7 +49,6 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
 
         }
     }
-
     // Método para realizar o login do funcionário
     public boolean realizar_Login_Funcionario(Funcionario funcionario) throws SQLException {
 
@@ -114,4 +113,51 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
 
     return listaFuncionarios;
 }
+
+    public boolean deletarFuncionario(Funcionario funcionario) throws SQLException
+    {
+        String sql = "DELETE FROM Funcionario WHERE id_funcionario =  ?";
+        try (Connection con = FabricaConexao.faz_Conexao(); PreparedStatement stmt = con.prepareStatement(sql)) {
+            stmt.setInt(1, funcionario.getId_funcionario());
+
+            int rowsAffected = stmt.executeUpdate();
+            // Verifica se a inserção foi bem-sucedida
+            if (rowsAffected > 0) {
+                return true;
+
+            } else {
+                return false;
+
+            }
+        } catch (Exception e) {
+            // Caso ocorra algum erro, é registrado no log e uma mensagem de erro é exibida
+            Logger.getLogger(FabricaConexao.class.getName()).log(Level.SEVERE, null, e);
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    public boolean atualizarFuncionario(Funcionario funcionario, String coluna) throws SQLException
+    {
+        String sql = "UPDATE Funcionario SET " + coluna + " = ? WHERE id_funcionario = ? ";
+        try (Connection con = FabricaConexao.faz_Conexao(); PreparedStatement stmt = con.prepareStatement(sql)) {
+            stmt.setString(1, funcionario.getSenha());
+            stmt.setInt(2, funcionario.getId_funcionario());
+
+            int rowsAffected = stmt.executeUpdate();
+            // Verifica se a inserção foi bem-sucedida
+            if (rowsAffected > 0) {
+                return true;
+
+            } else {
+                return false;
+
+            }
+        } catch (Exception e) {
+            // Caso ocorra algum erro, é registrado no log e uma mensagem de erro é exibida
+            Logger.getLogger(FabricaConexao.class.getName()).log(Level.SEVERE, null, e);
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + e.getMessage());
+            return false;
+        }
+    }
 }
