@@ -39,3 +39,6 @@ irei preencher a tabela produtos na interface grafica, colocando o total de prod
 *21/01/25 terminei o crud de funcionario e adiocinei mensagens de confirmação(excluir).
 
 
+*22/01/25 fiz o alterar de produtos(3horas pra fazer), e formatei todas as linhas do meu projeto com uma extenção.
+
+

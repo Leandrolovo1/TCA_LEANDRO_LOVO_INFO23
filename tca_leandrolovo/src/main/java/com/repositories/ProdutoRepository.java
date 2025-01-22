@@ -22,4 +22,7 @@ public class ProdutoRepository {
     public ObservableList<Produtos> preencher_Tabela_Produtos(){
         return ProdutoDAOimpl.preencher_Tabela_Produtos();
     }
+    public boolean atualizarProduto(Produtos produto, String coluna, int tipo) throws SQLException{
+        return ProdutoDAOimpl.atualizarProduto(produto, coluna, tipo);
+    }
 }

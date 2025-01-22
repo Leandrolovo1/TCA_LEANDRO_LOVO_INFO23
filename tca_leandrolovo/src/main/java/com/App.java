@@ -27,19 +27,19 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
         stage.getIcons().add(new Image(getClass().getResourceAsStream("images/mamonas.png")));
-        
-        
+
     }
-    
+
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
-        
+
     }
-    
+
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("view/" + fxml + ".fxml"));
         return fxmlLoader.load();
     }
+
     public static void main(String[] args) {
         Locale.setDefault(new Locale("pt", "BR"));
         launch();

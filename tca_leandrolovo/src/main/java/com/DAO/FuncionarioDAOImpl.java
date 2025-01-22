@@ -49,6 +49,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
 
         }
     }
+
     // Método para realizar o login do funcionário
     public boolean realizar_Login_Funcionario(Funcionario funcionario) throws SQLException {
 
@@ -91,31 +92,31 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
     }
 
     public ObservableList<Funcionario> preencher_Tabela_Funcionarios() {
-    String sql = "SELECT id_funcionario, nome, email, telefone, Numero_Vendas FROM Funcionario";
+        String sql = "SELECT id_funcionario, nome, email, telefone, Numero_Vendas FROM Funcionario";
 
-    listaFuncionarios.clear();
+        listaFuncionarios.clear();
 
-    try (Connection con = FabricaConexao.faz_Conexao(); PreparedStatement stmt = con.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
+        try (Connection con = FabricaConexao.faz_Conexao();
+                PreparedStatement stmt = con.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery()) {
 
-        while (rs.next()) {
-            listaFuncionarios.add(new Funcionario(
-                    rs.getInt("id_funcionario"),
-                    rs.getString("nome"),
-                    rs.getString("email"),
-                    rs.getString("telefone"),
-                    rs.getInt("Numero_vendas")
-            ));
+            while (rs.next()) {
+                listaFuncionarios.add(new Funcionario(
+                        rs.getInt("id_funcionario"),
+                        rs.getString("nome"),
+                        rs.getString("email"),
+                        rs.getString("telefone"),
+                        rs.getInt("Numero_vendas")));
+            }
+
+        } catch (SQLException e) {
+            Logger.getLogger(FuncionarioDAOImpl.class.getName()).log(Level.SEVERE, "Erro ao preencher a tabela", e);
         }
 
-    } catch (SQLException e) {
-        Logger.getLogger(FuncionarioDAOImpl.class.getName()).log(Level.SEVERE, "Erro ao preencher a tabela", e);
+        return listaFuncionarios;
     }
 
-    return listaFuncionarios;
-}
-
-    public boolean deletarFuncionario(Funcionario funcionario) throws SQLException
-    {
+    public boolean deletarFuncionario(Funcionario funcionario) throws SQLException {
         String sql = "DELETE FROM Funcionario WHERE id_funcionario =  ?";
         try (Connection con = FabricaConexao.faz_Conexao(); PreparedStatement stmt = con.prepareStatement(sql)) {
             stmt.setInt(1, funcionario.getId_funcionario());
@@ -136,9 +137,8 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
             return false;
         }
     }
-    
-    public boolean atualizarFuncionario(Funcionario funcionario, String coluna) throws SQLException
-    {
+
+    public boolean atualizarFuncionario(Funcionario funcionario, String coluna) throws SQLException {
         String sql = "UPDATE Funcionario SET " + coluna + " = ? WHERE id_funcionario = ? ";
         try (Connection con = FabricaConexao.faz_Conexao(); PreparedStatement stmt = con.prepareStatement(sql)) {
             stmt.setString(1, funcionario.getSenha());

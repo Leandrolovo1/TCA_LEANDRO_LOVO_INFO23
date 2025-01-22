@@ -13,13 +13,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 public class Tela_Cadastrar_FuncionarioController {
-    @FXML 
+    @FXML
     private TextField TF_nome_funcionario;
-    @FXML 
+    @FXML
     private TextField TF_senha_funcionario;
-    @FXML 
+    @FXML
     private TextField TF_email_funcionario;
-    @FXML 
+    @FXML
     private TextField TF_telefone_funcionario;
 
     FuncionarioRepository funcionarioRepository;
@@ -33,12 +33,14 @@ public class Tela_Cadastrar_FuncionarioController {
     private void switchToTela_Principal() throws IOException {
         App.setRoot("Tela_Principal");
     }
+
     @FXML
     private void switchToTela_Admin() throws IOException {
         App.setRoot("Tela_Admin");
     }
+
     @FXML
-    private void cadastrarFuncionario() throws IOException, SQLException{
+    private void cadastrarFuncionario() throws IOException, SQLException {
 
         funcionarioRepository = new FuncionarioRepository();
         String nome = TF_nome_funcionario.getText();
@@ -57,6 +59,5 @@ public class Tela_Cadastrar_FuncionarioController {
             JOptionPane.showMessageDialog(null, "Cadastro MAU-sucedido!");
         }
     }
-    
 
 }

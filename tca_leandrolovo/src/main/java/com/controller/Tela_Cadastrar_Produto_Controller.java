@@ -27,6 +27,7 @@ public class Tela_Cadastrar_Produto_Controller {
     @FXML
     private TextField TF_preco_produto;
     ProdutoRepository produtoRepository;
+
     @FXML
     public void initialize() {
         // Preenchendo o ComboBox com as opções
@@ -42,8 +43,7 @@ public class Tela_Cadastrar_Produto_Controller {
     }
 
     @FXML
-    private void cadastrarProduto() throws IOException, SQLException 
-    {
+    private void cadastrarProduto() throws IOException, SQLException {
         produtoRepository = new ProdutoRepository();
 
         String nome_produto = TF_nome_produto.getText();

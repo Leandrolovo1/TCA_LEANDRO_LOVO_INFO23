@@ -10,10 +10,10 @@ public class Tela_PrincipalController {
     private void switchToTela_LoginFuncionario() throws IOException {
         App.setRoot("Tela_LoginFuncionario");
     }
+
     @FXML
     private void switchToTela_LoginAdm() throws IOException {
         App.setRoot("Tela_LoginAdm");
     }
-    
-    
+
 }

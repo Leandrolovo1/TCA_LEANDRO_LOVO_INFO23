@@ -10,13 +10,11 @@ public class AdministradorRepository {
 
     AdministradorDAOImpl AdministradorDAOimpl;
 
-    public AdministradorRepository()throws SQLException
-    {
+    public AdministradorRepository() throws SQLException {
         this.AdministradorDAOimpl = new AdministradorDAOImpl();
     }
 
-    public boolean realizarLoginAdministrador(Administrador administrador) throws SQLException
-    {
+    public boolean realizarLoginAdministrador(Administrador administrador) throws SQLException {
         return AdministradorDAOimpl.realizar_Login_Administrador(administrador);
     }
 

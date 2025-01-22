@@ -21,7 +21,6 @@ public class Tela_LoginAdmController {
     private Button btnEntrar;
 
     AdministradorRepository administradorRepository;
-    
 
     @FXML
     private void switchToTela_Principal() throws IOException {
