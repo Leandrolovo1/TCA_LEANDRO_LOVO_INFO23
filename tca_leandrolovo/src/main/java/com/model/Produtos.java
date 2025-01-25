@@ -70,7 +70,7 @@ public class Produtos {
     public void setNome_produto(String nome_produto) {
         this.nome_produto = nome_produto;
     }
-
+    
     public String getMarca_produto() {
         return marca_produto;
     }

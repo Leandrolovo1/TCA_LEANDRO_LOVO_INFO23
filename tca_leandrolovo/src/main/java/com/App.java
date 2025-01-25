@@ -15,6 +15,7 @@ import java.util.Locale;
  * JavaFX App
  */
 public class App extends Application {
+    private static Stage primaryStage;
     @FXML
     private ComboBox<String> COMBOBOX_tipo_produto;
 
@@ -22,6 +23,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        primaryStage = stage;
         scene = new Scene(loadFXML("Tela_Principal"));
         stage.setTitle("TCA LeandroLovo INFO23");
         stage.setScene(scene);
@@ -38,6 +40,9 @@ public class App extends Application {
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("view/" + fxml + ".fxml"));
         return fxmlLoader.load();
+    }
+    public static Stage getPrimaryStage() {
+        return primaryStage;
     }
 
     public static void main(String[] args) {

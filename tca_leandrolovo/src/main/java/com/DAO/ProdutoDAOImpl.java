@@ -25,7 +25,7 @@ public class ProdutoDAOImpl implements ProdutoDAO {
 
         try (Connection con = FabricaConexao.faz_Conexao(); PreparedStatement stmt = con.prepareStatement(sql)) {
             // Prepara a instrução SQL para execução
-            stmt.setString(1, produto.getNome_produto()); // Define o nome do funcionário
+            stmt.setString(1, produto.getNome_produto()); // Define o nome do produto
             stmt.setString(2, produto.getMarca_produto());
             stmt.setObject(3, produto.getCategoria_produto());
             stmt.setFloat(4, produto.getPreco_produto());
@@ -43,7 +43,7 @@ public class ProdutoDAOImpl implements ProdutoDAO {
 
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             // Caso ocorra algum erro, é registrado no log e uma mensagem de erro é exibida
             Logger.getLogger(FabricaConexao.class.getName()).log(Level.SEVERE, null, e);
             JOptionPane.showMessageDialog(null, "Erro ao salvar: " + e.getMessage());

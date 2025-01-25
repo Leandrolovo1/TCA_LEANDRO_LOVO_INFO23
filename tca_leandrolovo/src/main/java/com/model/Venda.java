@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Venda {
     int id_venda;
-    int fk_if_funcionario;
+    int fk_id_funcionario;
     Date data_venda;
     float total_venda;
     float valor_pago;

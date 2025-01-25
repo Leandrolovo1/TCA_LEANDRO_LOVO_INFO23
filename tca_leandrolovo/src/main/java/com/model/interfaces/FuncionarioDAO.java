@@ -7,6 +7,7 @@ import com.model.Funcionario;
 import javafx.collections.ObservableList;
 
 public interface FuncionarioDAO {
+    
     public boolean cadastrarFuncionario(Funcionario funcionario) throws SQLException;
 
     public boolean realizar_Login_Funcionario(Funcionario funcionario) throws SQLException;

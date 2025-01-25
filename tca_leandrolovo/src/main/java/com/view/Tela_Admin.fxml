@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -12,25 +11,6 @@
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="800.0" style="-fx-background-color: #556280;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.Tela_AdminController">
   <tabs>
-      <Tab text="Home">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Label layoutX="577.0" layoutY="51.0" text="VENDAS" textFill="WHITE" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="60.0">
-                     <font>
-                        <Font size="37.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="422.0" layoutY="200.0" text="PRODUTOS" textFill="WHITE" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="60.0">
-                     <font>
-                        <Font size="37.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="14.0" layoutY="492.0" mnemonicParsing="false" onAction="#switchToTela_Principal" text="Tela Principal" />
-               </children>
-            </AnchorPane>
-        </content>
-      </Tab>
     <Tab text="Produtos">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -53,6 +33,7 @@
                   </TableView>
                   <Button fx:id="idCadastrarProduto" layoutX="400.0" layoutY="437.0" mnemonicParsing="false" onAction="#switchToTela_Cadastrar_Produto" text="Cadastrar Produto" />
                   <Button layoutX="302.0" layoutY="437.0" mnemonicParsing="false" onAction="#atualizarProduto" text="Alterar Produto" />
+                  <Button layoutX="14.0" layoutY="492.0" mnemonicParsing="false" onAction="#switchToTela_Principal" text="Tela Principal" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -87,6 +68,7 @@
                         <Font size="14.0" />
                      </font>
                   </Button>
+                  <Button layoutX="14.0" layoutY="492.0" mnemonicParsing="false" onAction="#switchToTela_Principal" text="Tela Principal" />
                </children></AnchorPane>
         </content>
       </Tab>

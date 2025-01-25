@@ -76,16 +76,4 @@ public class Estoque {
     public void setData_movimentacao(Date data_movimentacao) {
         Data_movimentacao = data_movimentacao;
     }
-
-    public void adicionarQuantidade(int quantidade) {
-        this.quantidade += quantidade;
-    }
-
-    public void removerQuantidade(int quantidade) {
-        if (this.quantidade >= quantidade) {
-            this.quantidade -= quantidade;
-        } else {
-            System.out.println("Estoque insuficiente!");
-        }
-    }
 }

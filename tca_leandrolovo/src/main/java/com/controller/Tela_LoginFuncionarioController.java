@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import com.model.Funcionario;
 
@@ -61,7 +64,7 @@ public class Tela_LoginFuncionarioController {
 
         // Se o login for bem-sucedido, troca para a tela do funcionário
         if (Login_Sucesso) {
-            switchToTela_Funcionario();
+            switchToTela_Funcionario(id_funcionario);
         } else {
             // Caso o login falhe, exibe uma mensagem de erro
             JOptionPane.showMessageDialog(null, "Login MAU-sucedido!");
@@ -77,8 +80,21 @@ public class Tela_LoginFuncionarioController {
 
     // Método que alterna para a tela do funcionário (após login bem-sucedido)
     @FXML
-    private void switchToTela_Funcionario() throws IOException {
-        // Muda a tela para "Tela_Funcionario"
-        App.setRoot("Tela_Funcionario");
-    }
+private void switchToTela_Funcionario(int id_funcionario) throws IOException {
+    // Carregar o FXML da Tela_Funcionario
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/view/Tela_Funcionario.fxml"));
+    Parent root = loader.load(); // Carregar o arquivo FXML
+
+    // Obter o controlador da Tela_Funcionario após carregar o FXML
+    Tela_Funcionario_Controller controller = loader.getController();
+
+    // Passar o ID do funcionário para o controlador
+    controller.setIdFuncionario(id_funcionario);
+
+    // Alterar a cena da aplicação para a nova tela
+    Scene scene = new Scene(root);
+    App.getPrimaryStage().setScene(scene); // Alterna a cena
+    App.getPrimaryStage().show(); // Exibe a janela com a nova tela
+}
+
 }
