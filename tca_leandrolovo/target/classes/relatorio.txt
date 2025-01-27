@@ -42,3 +42,6 @@ irei preencher a tabela produtos na interface grafica, colocando o total de prod
 *22/01/25 fiz o alterar de produtos(3horas pra fazer), e formatei todas as linhas do meu projeto com uma extenção.
 
 
+*26/01/25 melhorei o remover e adicionar ao carrinho, colocando verificações
+
+

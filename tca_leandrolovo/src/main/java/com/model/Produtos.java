@@ -10,9 +10,9 @@ public class Produtos {
 
     @Override
     public String toString() {
-        return "Produtos [id_produto=" + id_produto + ", nome_produto=" + nome_produto + ", categoria_produto="
-                + categoria_produto + ", marca_produto=" + marca_produto + ", preco_produto=" + preco_produto
-                + ", quantidade=" + quantidade + "]";
+        return "Produtos [id_produto =" + id_produto + ", nome_produto =" + nome_produto + ", categoria_produto ="
+                + categoria_produto + ", marca_produto =" + marca_produto + ", preco_produto =" + preco_produto
+                + ", quantidade =" + quantidade + "]";
     }
 
     public Produtos(int id_produto, int quantidade) {
