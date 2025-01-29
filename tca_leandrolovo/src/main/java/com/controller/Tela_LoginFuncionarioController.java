@@ -1,16 +1,18 @@
 package com.controller;
 
-import com.App;
-import com.repositories.FuncionarioRepository;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+
+import com.App;
+import com.model.Funcionario;
+import com.repositories.FuncionarioRepository;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import com.model.Funcionario;
 
 public class Tela_LoginFuncionarioController {
 
@@ -23,6 +25,13 @@ public class Tela_LoginFuncionarioController {
 
     // Instância do repositório de funcionários para gerenciar a lógica de login
     FuncionarioRepository funcionarioRepository;
+
+    @FXML
+    public void initialize() {
+        //System.out.println("Controlador de Tela_LoginFuncionario inicializado.");
+        
+    }
+
 
     // Método que alterna para a tela principal
     @FXML

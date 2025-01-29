@@ -20,7 +20,8 @@ public class FuncionarioRepository {
         this.FuncionarioDAOimpl = new FuncionarioDAOImpl();
     }
 
-    public boolean realizarLoginFuncionario(Funcionario funcionario) throws SQLException {
+    public boolean realizarLoginFuncionario(Funcionario funcionario) throws SQLException 
+    {
         // Chama o método de login da classe FuncionarioDAOImpl e retorna o resultado
         // (true/false)
         return FuncionarioDAOimpl.realizar_Login_Funcionario(funcionario);

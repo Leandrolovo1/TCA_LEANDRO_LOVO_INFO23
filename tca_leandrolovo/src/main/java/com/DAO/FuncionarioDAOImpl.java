@@ -6,10 +6,13 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import java.sql.Connection;
+
 import com.db.FabricaConexao;
 import com.model.Funcionario;
 import com.model.interfaces.FuncionarioDAO;
+
+import java.sql.Connection;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

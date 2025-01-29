@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 import com.App;
-import com.model.Produtos;
 import com.model.Funcionario;
+import com.model.Produtos;
 import com.repositories.FuncionarioRepository;
 import com.repositories.ProdutoRepository;
 
@@ -66,6 +66,7 @@ public class Tela_AdminController {
             configurarColunas_funcionarios();
             listaFuncionarios = funcionarioRepository.preencher_Tabela_Funcionarios();
             Tb_Funcionarios.setItems(listaFuncionarios);
+
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("Erro ao carregar os dados do banco: " + e.getMessage());
@@ -79,7 +80,8 @@ public class Tela_AdminController {
     public void editarFuncionario() throws SQLException {
         Funcionario funcionario = Tb_Funcionarios.getSelectionModel().getSelectedItem();
         if (funcionario == null) {
-            JOptionPane.showMessageDialog(null, "Nenhum Funcionario foi selecionado.");
+            JOptionPane.showMessageDialog(null, "Nenhum Funcionario foi selecionado.", "ALERTA",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         String[] opcaoColunas = { "nome", "email", "telefone", "senha" };
@@ -120,9 +122,10 @@ public class Tela_AdminController {
                                                            // automaticamente)
             }
             Tb_Funcionarios.getSelectionModel().clearSelection(); // Limpar seleção
-            JOptionPane.showMessageDialog(null, "Funcionário atualizado com sucesso.");
+            JOptionPane.showMessageDialog(null, "Funcionário atualizado com sucesso.", "SUCESSO",
+                    JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Erro ao atualizado funcionário!");
+            JOptionPane.showMessageDialog(null, "Erro ao atualizado funcionário!", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
 
     }
@@ -131,7 +134,8 @@ public class Tela_AdminController {
     public void atualizarProduto() throws SQLException {
         Produtos produto = Tb_Produtos.getSelectionModel().getSelectedItem();
         if (produto == null) {
-            JOptionPane.showMessageDialog(null, "Nenhum Produto foi selecionado.");
+            JOptionPane.showMessageDialog(null, "Nenhum Produto foi selecionado.", "ALERTA",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         int id = produto.getId_produto();
@@ -169,7 +173,8 @@ public class Tela_AdminController {
                 update_sucesso = produtoRepository.atualizarProduto(produtoID, Coluna, tipo);
                 // update_sucesso = produtoRepository.atualizarProduto(produtoID, Coluna, tipo);
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Entrada inválida. Por favor, insira um número válido.");
+                JOptionPane.showMessageDialog(null, "Entrada inválida. Por favor, insira um número válido.", "ERRO",
+                        JOptionPane.ERROR_MESSAGE);
             }
         } else if (opcaoEscolhida == 4) {// quantidade
             Coluna = opcaoColunas[opcaoEscolhida];
@@ -186,7 +191,8 @@ public class Tela_AdminController {
                 update_sucesso = produtoRepository.atualizarProduto(produtoID, Coluna, tipo);
                 // update_sucesso = produtoRepository.atualizarProduto(produtoID, Coluna, tipo);
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Entrada inválida. Por favor, insira um número válido.");
+                JOptionPane.showMessageDialog(null, "Entrada inválida. Por favor, insira um número válido.", "ERRO",
+                        JOptionPane.ERROR_MESSAGE);
             }
         } else {
             Coluna = opcaoColunas[opcaoEscolhida];
@@ -233,9 +239,10 @@ public class Tela_AdminController {
             }
 
             Tb_Produtos.getSelectionModel().clearSelection(); // Limpar seleção
-            JOptionPane.showMessageDialog(null, "produto atualizado com sucesso.");
+            JOptionPane.showMessageDialog(null, "produto atualizado com sucesso.", "SUCESSO",
+                    JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Erro ao atualizado Produto!");
+            JOptionPane.showMessageDialog(null, "Erro ao atualizado Produto!", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
 
     }
@@ -244,7 +251,8 @@ public class Tela_AdminController {
     public void excluirFuncionario() throws IOException, SQLException {
         Funcionario funcionario = Tb_Funcionarios.getSelectionModel().getSelectedItem();
         if (funcionario == null) {
-            JOptionPane.showMessageDialog(null, "Nenhum Funcionario foi selecionado.");
+            JOptionPane.showMessageDialog(null, "Nenhum Funcionario foi selecionado.", "ALERTA",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -274,7 +282,7 @@ public class Tela_AdminController {
         CL_categoria_produto.setCellValueFactory(new PropertyValueFactory<>("categoria_produto"));
         CL_preco_produto.setCellValueFactory(new PropertyValueFactory<>("Preco_produto"));
         CL_quantidade_produto.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
-    }
+    }                                                
 
     private void configurarColunas_funcionarios() {
         CL_ID_funcionario.setCellValueFactory(new PropertyValueFactory<>("id_funcionario"));
@@ -284,8 +292,8 @@ public class Tela_AdminController {
         CL_numero_vendas_produto.setCellValueFactory(new PropertyValueFactory<>("numero_vendas"));
     }
 
-    @FXML
-    private void switchToTela_Principal() throws IOException {
+    @FXML 
+    public void switchToTela_Principal() throws IOException {
         App.setRoot("Tela_Principal");
     }
 

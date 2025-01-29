@@ -47,7 +47,7 @@ public class Tela_Cadastrar_FuncionarioController {
         String senha = TF_senha_funcionario.getText();
         String email = TF_email_funcionario.getText();
         String telefone = TF_telefone_funcionario.getText();
-
+        
         Funcionario funcionario = new Funcionario(nome, senha, email, telefone);
 
         boolean Cadastro_sucesso = funcionarioRepository.cadastrarFuncionario(funcionario);

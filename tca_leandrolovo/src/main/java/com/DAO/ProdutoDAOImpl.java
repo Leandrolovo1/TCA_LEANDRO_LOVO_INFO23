@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
+
 import com.db.FabricaConexao;
 import com.model.Estoque;
 import com.model.Produtos;

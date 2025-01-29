@@ -30,7 +30,7 @@
                      </columnResizePolicy>
                   </TableView>
                   <Button layoutX="213.0" layoutY="331.0" mnemonicParsing="false" onAction="#adicionarCarrinho" prefHeight="25.0" prefWidth="67.0" style="-fx-background-insets: 0;" text="Adicionar" AnchorPane.bottomAnchor="175.0" AnchorPane.rightAnchor="520.0" AnchorPane.topAnchor="331.0" />
-                  <Button layoutX="673.0" layoutY="331.0" mnemonicParsing="false" onAction="#switchToTela_Principal" prefHeight="25.0" prefWidth="113.0" text="Ir para CARRINHO" AnchorPane.leftAnchor="673.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="331.0" />
+                  <Button layoutX="673.0" layoutY="331.0" mnemonicParsing="false" onAction="#irParaPagamento" prefHeight="25.0" prefWidth="113.0" text="Ir para CARRINHO" AnchorPane.leftAnchor="673.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="331.0" />
                   <TableView fx:id="Tb_Carrinho" layoutX="506.0" layoutY="14.0" prefHeight="310.0" prefWidth="281.0">
                      <columns>
                         <TableColumn fx:id="CL_codigo_Carrinho" prefWidth="75.0" sortType="DESCENDING" text="Código" />

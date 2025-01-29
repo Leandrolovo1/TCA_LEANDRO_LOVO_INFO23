@@ -8,12 +8,12 @@
 funcionario implementação e tirei os sql do controller //lembrar de estudar mais sobre.
 
 
-*18/12/24* arrumei a navegação de telas de funcionario, agora falta de admnistrador, 
+*18/12/24* arrumei a navegação de telas de funcionario, agora falta de administrador, 
 pedi pro chat comentar as linhas de alguns arquivos para melhor explicação do que esta acontecendo,
 fiz trycatch com recourses para fechar automaticamente as conexões ao banco de dados
 
 
-*21/12/24 arrumei a classe administrador troquei tudo para o padrao repository e etc(agora so falta produtos)
+*21/12/24 arrumei a classe administrador troquei tudo para o padrão repository e etc(agora so falta produtos)
 criei o cadastrar funcionario com tudo certinho :)
 
 
@@ -24,7 +24,7 @@ criei os gets e setters dos novos modelos
 
 14/01/25 terminei os diagramas de banco de dados e modifiquei as tela de login,
 fazendo com que cada funcionario entre com seu id e senha
-e verificando tambem caso o usuario insira campos vazios
+e verificando tambem caso o usuário insira campos vazios
 
 
 *15/01/25 criei view e store procedure, fiz o create de produtos 
@@ -39,9 +39,12 @@ irei preencher a tabela produtos na interface grafica, colocando o total de prod
 *21/01/25 terminei o crud de funcionario e adiocinei mensagens de confirmação(excluir).
 
 
-*22/01/25 fiz o alterar de produtos(3horas pra fazer), e formatei todas as linhas do meu projeto com uma extenção.
+*22/01/25 fiz o alterar de produtos(3horas pra fazer), e formatei todas as linhas do meu projeto com uma extensão.
 
 
 *26/01/25 melhorei o remover e adicionar ao carrinho, colocando verificações
 
 
+*28/01/25(: arrumei um grande bug que apos logar e voltar para a tela principal,
+ ele n conseguia abrir as outras interfaces
+ comecei o método de efetuar compra/pagamento, falta só cadastrar ao banco de dados :)

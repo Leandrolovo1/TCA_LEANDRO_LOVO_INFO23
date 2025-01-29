@@ -1,14 +1,17 @@
 package com.controller;
 
 import java.io.IOException;
+
 import com.App;
+
 import javafx.fxml.FXML;
 
-public class Tela_PrincipalController {
+public class Tela_PrincipalController  { 
 
     @FXML
-    private void switchToTela_LoginFuncionario() throws IOException {
+    private void switchToTela_LoginFuncionario () throws IOException  {
         App.setRoot("Tela_LoginFuncionario");
+            
     }
 
     @FXML

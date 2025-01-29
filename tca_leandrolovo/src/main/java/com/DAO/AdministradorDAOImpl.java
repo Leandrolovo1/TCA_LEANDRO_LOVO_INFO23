@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import com.db.FabricaConexao;
 import com.model.Administrador;
 import com.model.interfaces.AdministradorDAO;

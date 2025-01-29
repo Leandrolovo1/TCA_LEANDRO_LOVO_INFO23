@@ -3,8 +3,9 @@ package com.repositories;
 //import com.model.interfaces.AdministradorDAO;
 
 import java.sql.SQLException;
-import com.model.Administrador;
+
 import com.DAO.AdministradorDAOImpl;
+import com.model.Administrador;
 
 public class AdministradorRepository {
 
