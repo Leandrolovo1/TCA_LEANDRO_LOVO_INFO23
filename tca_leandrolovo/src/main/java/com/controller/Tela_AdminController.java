@@ -8,8 +8,10 @@ import javax.swing.JOptionPane;
 import com.App;
 import com.model.Funcionario;
 import com.model.Produtos;
+import com.model.Produtos_Venda;
 import com.repositories.FuncionarioRepository;
 import com.repositories.ProdutoRepository;
+import com.repositories.Produtos_VendaRepository;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -54,6 +56,21 @@ public class Tela_AdminController {
 
     private ObservableList<Funcionario> listaFuncionarios = FXCollections.observableArrayList();
 
+    Produtos_VendaRepository produtos_VendaRepository;
+
+    @FXML
+    private TableView<Produtos_Venda> Tb_Receita;
+    @FXML
+    private TableColumn<Produtos_Venda, Integer> CL_ID_Produto_venda;
+    @FXML
+    private TableColumn<Produtos_Venda, String> CL_ID_venda;
+    @FXML
+    private TableColumn<Produtos_Venda, Integer> CL_quantidade;
+    @FXML
+    private TableColumn<Produtos_Venda, Float> CL_subtotal;
+
+    private ObservableList<Produtos_Venda> listaReceita = FXCollections.observableArrayList();
+
     @FXML
     public void initialize() {
         try {
@@ -66,6 +83,11 @@ public class Tela_AdminController {
             configurarColunas_funcionarios();
             listaFuncionarios = funcionarioRepository.preencher_Tabela_Funcionarios();
             Tb_Funcionarios.setItems(listaFuncionarios);
+            /////////////////////////////////////////
+            produtos_VendaRepository = new Produtos_VendaRepository();
+            configurarColunas_Produtos_Venda();
+            listaReceita = produtos_VendaRepository.preencher_Tabela_Produtos_Vendas();
+            Tb_Receita.setItems(listaReceita);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -282,7 +304,14 @@ public class Tela_AdminController {
         CL_categoria_produto.setCellValueFactory(new PropertyValueFactory<>("categoria_produto"));
         CL_preco_produto.setCellValueFactory(new PropertyValueFactory<>("Preco_produto"));
         CL_quantidade_produto.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
-    }                                                
+    }
+
+    private void configurarColunas_Produtos_Venda() {
+        CL_ID_Produto_venda.setCellValueFactory(new PropertyValueFactory<>("id_produto"));
+        CL_ID_venda.setCellValueFactory(new PropertyValueFactory<>("id_venda"));
+        CL_subtotal.setCellValueFactory(new PropertyValueFactory<>("Subtotal"));
+        CL_quantidade.setCellValueFactory(new PropertyValueFactory<>("Quantidade"));
+    }
 
     private void configurarColunas_funcionarios() {
         CL_ID_funcionario.setCellValueFactory(new PropertyValueFactory<>("id_funcionario"));
@@ -292,7 +321,7 @@ public class Tela_AdminController {
         CL_numero_vendas_produto.setCellValueFactory(new PropertyValueFactory<>("numero_vendas"));
     }
 
-    @FXML 
+    @FXML
     public void switchToTela_Principal() throws IOException {
         App.setRoot("Tela_Principal");
     }
@@ -307,4 +336,15 @@ public class Tela_AdminController {
         App.setRoot("Tela_Cadastrar_Funcionario");
     }
 
+    private float calcularReceita() {
+        float total = 0;
+        for (Produtos_Venda produto : listaReceita) {
+            total += produto.getSubtotal();
+        }
+        return total;
+    }
+    @FXML private void calcularReceitaTotal() {
+        float total = calcularReceita();
+        JOptionPane.showMessageDialog(null, "A receita total é: R$ " + total, "Receita Total", JOptionPane.INFORMATION_MESSAGE);
+    }
 }

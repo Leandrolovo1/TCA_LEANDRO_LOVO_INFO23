@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import com.model.Estoque;
 import com.model.Produtos;
+
 import com.model.Venda;
 
 import javafx.collections.ObservableList;
@@ -15,6 +16,4 @@ public interface ProdutoDAO {
     public int registrarVenda(Venda venda) throws SQLException;
     public boolean registrarProdutoVenda(int idVenda, Produtos produto) throws SQLException;
     public boolean atualizarEstoque(Estoque estoque, int id_funcionario);
-
-
 }

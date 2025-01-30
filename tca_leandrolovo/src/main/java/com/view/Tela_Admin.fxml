@@ -72,5 +72,30 @@
                </children></AnchorPane>
         </content>
       </Tab>
+      <Tab text="Receita">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="Tb_Receita" layoutX="126.0" layoutY="14.0" prefHeight="450.0" prefWidth="550.0">
+                     <columns>
+                        <TableColumn fx:id="CL_ID_Produto_venda" prefWidth="75.0" text="ID_produto" />
+                        <TableColumn fx:id="CL_ID_venda" prefWidth="75.0" text="ID_venda" />
+                        <TableColumn fx:id="CL_quantidade" prefWidth="75.0" text="Quantidade" />
+                        <TableColumn fx:id="CL_subtotal" prefWidth="75.0" text="Subtotal" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <Button layoutX="324.0" layoutY="464.0" mnemonicParsing="false" onAction="#calcularReceitaTotal" style="-fx-background-insets: 0;" text="Ver Renda Bruta">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="14.0" layoutY="492.0" mnemonicParsing="false" onAction="#switchToTela_Principal" text="Tela Principal" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
   </tabs>
 </TabPane>
