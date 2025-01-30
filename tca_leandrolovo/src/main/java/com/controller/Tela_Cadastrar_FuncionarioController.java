@@ -47,7 +47,16 @@ public class Tela_Cadastrar_FuncionarioController {
         String senha = TF_senha_funcionario.getText();
         String email = TF_email_funcionario.getText();
         String telefone = TF_telefone_funcionario.getText();
-        
+        if (nome.isEmpty()||senha.isEmpty()||email.isEmpty()||telefone.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Nenhum Campo pode estar vazio.");
+            return;
+        }else if (!email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+            JOptionPane.showMessageDialog(null, "O e-mail deve ter um formato válido.");
+            return;
+        }else if (!telefone.matches("\\d{10,11}")) {
+            JOptionPane.showMessageDialog(null, "O telefone deve ter 10 ou 11 dígitos.");
+            return;
+        }
         Funcionario funcionario = new Funcionario(nome, senha, email, telefone);
 
         boolean Cadastro_sucesso = funcionarioRepository.cadastrarFuncionario(funcionario);

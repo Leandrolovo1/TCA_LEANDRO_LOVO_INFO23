@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import com.DAO.ProdutoDAOImpl;
 import com.model.Estoque;
 import com.model.Produtos;
+import com.model.Venda;
 
 import javafx.collections.ObservableList;
 
@@ -24,5 +25,15 @@ public class ProdutoRepository {
     }
     public boolean atualizarProduto(Produtos produto, String coluna, int tipo) throws SQLException{
         return ProdutoDAOimpl.atualizarProduto(produto, coluna, tipo);
+    }
+    public int registrarVenda(Venda venda) throws SQLException{
+        return ProdutoDAOimpl.registrarVenda(venda);
+    }
+
+    public boolean registrarProdutoVenda(int idVenda, Produtos produto) throws SQLException{
+        return ProdutoDAOimpl.registrarProdutoVenda(idVenda, produto);
+    }
+    public boolean atualizarEstoque(Estoque estoque, int id_funcionario) throws SQLException{
+        return ProdutoDAOimpl.atualizarEstoque(estoque, id_funcionario);
     }
 }

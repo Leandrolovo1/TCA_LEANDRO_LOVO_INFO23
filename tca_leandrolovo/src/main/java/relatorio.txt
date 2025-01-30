@@ -48,3 +48,8 @@ irei preencher a tabela produtos na interface grafica, colocando o total de prod
 *28/01/25(: arrumei um grande bug que apos logar e voltar para a tela principal,
  ele n conseguia abrir as outras interfaces
  comecei o método de efetuar compra/pagamento, falta só cadastrar ao banco de dados :)
+
+
+
+ *29/01/25 FINALMENTE terminei o codigo, fiz a logica de efetuar uma venda e cadastrar tudo no banco de dados
+ tambem coloquei validações para cadastrar produto e funcionario.

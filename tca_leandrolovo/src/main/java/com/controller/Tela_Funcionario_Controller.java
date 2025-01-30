@@ -2,13 +2,10 @@ package com.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Observable;
-
 import javax.swing.JOptionPane;
-
 import com.model.Produtos;
+import com.model.Venda;
 import com.repositories.ProdutoRepository;
-
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -55,12 +52,13 @@ public class Tela_Funcionario_Controller {
 
     private ObservableList<Produtos> listaCarrinho = FXCollections.observableArrayList();
 
+    
     private int idFuncionario;
 
     // Método chamado para passar o ID do funcionário
     public void setIdFuncionario(int idFuncionario) {
         this.idFuncionario = idFuncionario;
-        // System.out.println("ID do funcionário recebido: " + idFuncionario);
+        
     }
 
     @FXML
@@ -154,9 +152,9 @@ public class Tela_Funcionario_Controller {
         Tb_Produtos.getSelectionModel().clearSelection();
         Tb_Carrinho.refresh();
     }
-
-    public void irParaPagamento() throws IOException {
-        float troco;
+    
+    public void irParaPagamento() throws IOException, SQLException {
+        @SuppressWarnings("unused")
         float dinheiro = -1;
         float total = calcularTotal();
         String pagamento = "-";
@@ -189,15 +187,28 @@ public class Tela_Funcionario_Controller {
                     JOptionPane.showMessageDialog(null, "Valor inválido. Por favor, insira um número.");
                 }
             }
-                    
+            
+                float troco = 0;    
                 JOptionPane.showMessageDialog(null, "Troco: R$" + (troco = dinheiro - total));
                 JOptionPane.showMessageDialog(null, "Compra efetuada com sucesso.", "Pagamento Concluído",JOptionPane.INFORMATION_MESSAGE);
+                Venda venda = new Venda(idFuncionario, total, dinheiro, troco);
+                int idVenda = produtoRepository.registrarVenda(venda);
+                // Agora, registramos os produtos dessa venda
+                for (Produtos produto : listaCarrinho) {
+                    produtoRepository.registrarProdutoVenda(idVenda, produto); // Método que você deve criar para registrar os produtos na venda
+                    for (Produtos p : listaProdutos) {
+                        if (p.getId_produto() == produto.getId_produto()) {
+                            p.setQuantidade(p.getQuantidade() - produto.getQuantidade());
+                            break;
+                        }
+                    }
+                }
                 listaCarrinho.clear();
                 Tb_Carrinho.refresh();
-
+                Tb_Produtos.refresh();
                 //Tb_Produtos.setItems(listaProdutos);    
                 /*  // TODO registrar banco de dados
-                produtoRepository.irParaPagamento(listaCarrinho);*/
+                */
                 break;
             case 1:
                 // TODO: Implementar o pagamento por PIX
@@ -230,4 +241,6 @@ public class Tela_Funcionario_Controller {
         }
         return total;
     }
+
+
 }

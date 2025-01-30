@@ -53,10 +53,20 @@ public class Tela_Cadastrar_Produto_Controller {
         String preco_produtoString = TF_preco_produto.getText();
         String tipo_movimentacao = "Entrada";
 
+        if (nome_produto.isEmpty() || marca_produto.isEmpty() || categoria_produto == null || quantidadeString.isEmpty()
+                || preco_produtoString.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Nenhum Campo pode estar vazio.");
+            return;
+        }
+
         float preco_produto = 0.0f;
         try {
             // Converte o valor para float
             preco_produto = Float.parseFloat(preco_produtoString);
+            if (preco_produto <= 0) {
+                JOptionPane.showMessageDialog(null, "A quantidade deve ser um número inteiro positivo.");
+                return;
+            }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "deve ser um PREÇO *FLUTUANTE* válido.");
             return;
@@ -64,6 +74,10 @@ public class Tela_Cadastrar_Produto_Controller {
         int quantidade = -1;
         try {
             quantidade = Integer.parseInt(quantidadeString);
+            if (quantidade <= 0) {
+                JOptionPane.showMessageDialog(null, "A quantidade deve ser um número inteiro positivo.");
+                return;
+            }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "deve ser uma quantidade *INTEIRO* válido.");
             return;
