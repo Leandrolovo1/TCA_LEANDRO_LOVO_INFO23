@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -15,7 +17,7 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="Tb_Produtos" layoutX="132.0" layoutY="14.0" prefHeight="425.0" prefWidth="536.0">
+                  <TableView fx:id="Tb_Produtos" layoutX="132.0" layoutY="57.0" prefHeight="425.0" prefWidth="536.0">
                      <columns>
                         <TableColumn fx:id="CL_ID_produto" editable="false" prefWidth="75.0" text="ID" />
                         <TableColumn fx:id="CL_nome_produto" prefWidth="75.0" text="Nome" />
@@ -31,9 +33,17 @@
                         <DropShadow />
                      </effect>
                   </TableView>
-                  <Button fx:id="idCadastrarProduto" layoutX="400.0" layoutY="437.0" mnemonicParsing="false" onAction="#switchToTela_Cadastrar_Produto" text="Cadastrar Produto" />
-                  <Button layoutX="302.0" layoutY="437.0" mnemonicParsing="false" onAction="#atualizarProduto" text="Alterar Produto" />
+                  <Button fx:id="idCadastrarProduto" layoutX="400.0" layoutY="480.0" mnemonicParsing="false" onAction="#switchToTela_Cadastrar_Produto" text="Cadastrar Produto" />
+                  <Button layoutX="302.0" layoutY="480.0" mnemonicParsing="false" onAction="#atualizarProduto" text="Alterar Produto" />
                   <Button layoutX="14.0" layoutY="492.0" mnemonicParsing="false" onAction="#switchToTela_Principal" text="Tela Principal" />
+                  <Label layoutX="287.0" layoutY="14.0" text="Produtos Registrados">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
                </children></AnchorPane>
       </content>
     </Tab>
@@ -41,12 +51,12 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="321.0" layoutY="464.0" mnemonicParsing="false" onAction="#switchToTela_Cadastrar_Funcionario" style="-fx-background-insets: 0;" text="Cadastrar Funcionários">
+                  <Button layoutX="320.0" layoutY="487.0" mnemonicParsing="false" onAction="#switchToTela_Cadastrar_Funcionario" style="-fx-background-insets: 0;" text="Cadastrar Funcionários">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <TableView fx:id="Tb_Funcionarios" layoutX="126.0" layoutY="14.0" prefHeight="450.0" prefWidth="550.0">
+                  <TableView fx:id="Tb_Funcionarios" layoutX="125.0" layoutY="37.0" prefHeight="450.0" prefWidth="550.0">
                     <columns>
                       <TableColumn fx:id="CL_ID_funcionario" prefWidth="75.0" text="ID" />
                       <TableColumn fx:id="CL_nome_funcionario" prefWidth="75.0" text="Nome" />
@@ -58,17 +68,25 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <Button layoutX="126.0" layoutY="464.0" mnemonicParsing="false" onAction="#excluirFuncionario" style="-fx-background-insets: 0;" text="Excluir Funcionários">
+                  <Button layoutX="125.0" layoutY="487.0" mnemonicParsing="false" onAction="#excluirFuncionario" style="-fx-background-insets: 0;" text="Excluir Funcionários">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button layoutX="538.0" layoutY="464.0" mnemonicParsing="false" onAction="#editarFuncionario" style="-fx-background-insets: 0;" text="Editar Funcionários">
+                  <Button layoutX="537.0" layoutY="487.0" mnemonicParsing="false" onAction="#editarFuncionario" style="-fx-background-insets: 0;" text="Editar Funcionários">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
                   <Button layoutX="14.0" layoutY="492.0" mnemonicParsing="false" onAction="#switchToTela_Principal" text="Tela Principal" />
+                  <Label layoutX="268.0" text="Funcionários Registrados">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
                </children></AnchorPane>
         </content>
       </Tab>
@@ -76,7 +94,7 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="Tb_Receita" layoutX="126.0" layoutY="14.0" prefHeight="450.0" prefWidth="550.0">
+                  <TableView fx:id="Tb_Receita" layoutX="125.0" layoutY="28.0" prefHeight="450.0" prefWidth="550.0">
                      <columns>
                         <TableColumn fx:id="CL_ID_Produto_venda" prefWidth="75.0" text="ID_produto" />
                         <TableColumn fx:id="CL_ID_venda" prefWidth="75.0" text="ID_venda" />
@@ -87,7 +105,7 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <Button layoutX="324.0" layoutY="464.0" mnemonicParsing="false" onAction="#calcularReceitaTotal" style="-fx-background-insets: 0;" text="Ver Renda Bruta">
+                  <Button layoutX="323.0" layoutY="478.0" mnemonicParsing="false" onAction="#calcularReceitaTotal" style="-fx-background-insets: 0;" text="Ver Renda Bruta">
                      <font>
                         <Font size="18.0" />
                      </font>

@@ -154,7 +154,6 @@ public class Tela_Funcionario_Controller {
     }
     
     public void irParaPagamento() throws IOException, SQLException {
-        @SuppressWarnings("unused")
         float dinheiro = -1;
         float total = calcularTotal();
         String pagamento = "-";
@@ -168,12 +167,21 @@ public class Tela_Funcionario_Controller {
         
         operacaoEscolhida = JOptionPane.showOptionDialog(null, total + "R$"+"\nEscolha uma operacao:", "Operacao:",
         JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, tipoOperacao, tipoOperacao[0]);
+        if (operacaoEscolhida == JOptionPane.CLOSED_OPTION) {
+            return;
+            
+        }
         
         switch (operacaoEscolhida) {
             case 0:
             boolean valorValido = false;
             while (!valorValido) {
                 pagamento = JOptionPane.showInputDialog(total +"R$" +"\nDigite o valor pago:");
+                System.out.println(pagamento);
+                if (pagamento == null || pagamento.isEmpty() || pagamento.isBlank() || pagamento.equals("-") || pagamento.equals("+") || pagamento == "") {
+                    return;
+                    
+                }
                 try {
                     dinheiro = Float.parseFloat(pagamento);
                     if (dinheiro < 0) {
@@ -211,8 +219,35 @@ public class Tela_Funcionario_Controller {
                 */
                 break;
             case 1:
-                // TODO: Implementar o pagamento por PIX
+                int confirmacao = JOptionPane.showConfirmDialog(null,
+                "Pagamento via PIX\n chave: 41988605077\n LEANDRO LOVO MACEDO\n BANCO: INTER", "ATENÇÃO!", JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
 
+                if (confirmacao != JOptionPane.NO_OPTION && confirmacao != JOptionPane.CLOSED_OPTION && confirmacao != JOptionPane.CANCEL_OPTION) {
+                    JOptionPane.showMessageDialog(null, "Compra efetuada com sucesso.", "Pagamento Concluído",JOptionPane.INFORMATION_MESSAGE);
+                    venda = new Venda(idFuncionario, total, total, 0);
+                    idVenda = produtoRepository.registrarVenda(venda);
+                    // Agora, registramos os produtos dessa venda
+                    for (Produtos produto : listaCarrinho) {
+                        produtoRepository.registrarProdutoVenda(idVenda, produto); // Método que você deve criar para registrar os produtos na venda
+                        for (Produtos p : listaProdutos) {
+                            if (p.getId_produto() == produto.getId_produto()) {
+                                p.setQuantidade(p.getQuantidade() - produto.getQuantidade());
+                                break;
+                            }
+                        }
+                    }
+                    listaCarrinho.clear();
+                    Tb_Carrinho.refresh();
+                    Tb_Produtos.refresh();
+                    //Tb_Produtos.setItems(listaProdutos);
+
+                }else{
+                    JOptionPane.showMessageDialog(null, "Pagamento cancelado.");
+                    return;
+                    
+                }
+                break;
             case 2:
                 JOptionPane.showMessageDialog(null, "FIADO SÓ AMANHÃ.");
                 break;
