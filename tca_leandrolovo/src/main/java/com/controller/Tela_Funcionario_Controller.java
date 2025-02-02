@@ -177,10 +177,9 @@ public class Tela_Funcionario_Controller {
             boolean valorValido = false;
             while (!valorValido) {
                 pagamento = JOptionPane.showInputDialog(total +"R$" +"\nDigite o valor pago:");
-                System.out.println(pagamento);
                 if (pagamento == null || pagamento.isEmpty() || pagamento.isBlank() || pagamento.equals("-") || pagamento.equals("+") || pagamento == "") {
+                    JOptionPane.showMessageDialog(null, "Compra Cancelada.");
                     return;
-                    
                 }
                 try {
                     dinheiro = Float.parseFloat(pagamento);
@@ -220,7 +219,7 @@ public class Tela_Funcionario_Controller {
                 break;
             case 1:
                 int confirmacao = JOptionPane.showConfirmDialog(null,
-                "Pagamento via PIX\n chave: 41988605077\n LEANDRO LOVO MACEDO\n BANCO: INTER", "ATENÇÃO!", JOptionPane.YES_NO_OPTION,
+                "Pagamento via PIX\n chave: 41988605077\n LEANDRO LOVO MACEDO\n BANCO: INTER", "CONFIRME O PAGAMENTO!", JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE);
 
                 if (confirmacao != JOptionPane.NO_OPTION && confirmacao != JOptionPane.CLOSED_OPTION && confirmacao != JOptionPane.CANCEL_OPTION) {

@@ -41,6 +41,12 @@ public class Tela_LoginAdmController {
             JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.");
             return;
         }
+        // verifica se o nome contém números
+        //a expressão regular ".*\\d.*" verifica se há pelo menos um dígito em qualquer posição dentro da string
+        if (nome.matches(".*\\d.*")) {
+            JOptionPane.showMessageDialog(null, "O nome não pode conter números.");
+            return;
+        }
 
         Administrador administrador = new Administrador(nome, senha);
 

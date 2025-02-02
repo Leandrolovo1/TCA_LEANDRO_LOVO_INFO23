@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import com.db.FabricaConexao;
 import com.model.Administrador;
 import com.model.interfaces.AdministradorDAO;
@@ -23,15 +25,18 @@ public class AdministradorDAOImpl implements AdministradorDAO {
                 if (rs.next()) {
                     return true;
                 } else {
+                    JOptionPane.showMessageDialog(null, "Nome ou Senha Incorretos" );
                     return false;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Erro ao realizar Login : " + e.getMessage());
                 return false;
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Erro ao realizar Login : " + e.getMessage());
             return false;
 
         }

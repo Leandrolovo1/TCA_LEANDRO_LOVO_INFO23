@@ -79,17 +79,19 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
                     return true;
                 } else {
                     // Se o funcionário não for encontrado, retorna false
+                    JOptionPane.showMessageDialog(null, "ID ou Senha Incorretos" );
                     return false;
                 }
 
             } catch (SQLException e) {
-                // Caso ocorra algum erro durante o processo de login, exibe a stack trace e
+                // Caso ocorra algum erro durante o processo de login
                 // retorna false
-                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Erro ao realizar login: " + e.getMessage());
                 return false;
             }
 
         } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao realizar login: " + e.getMessage());
             return false;
         }
     }
