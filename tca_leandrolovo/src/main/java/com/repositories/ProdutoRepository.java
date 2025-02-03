@@ -36,4 +36,7 @@ public class ProdutoRepository {
     public boolean atualizarEstoque(Estoque estoque, int id_funcionario) throws SQLException{
         return ProdutoDAOimpl.atualizarEstoque(estoque, id_funcionario);
     }
+    public boolean deletarProduto(Produtos produto) throws SQLException{
+        return ProdutoDAOimpl.deletarProduto(produto);
+    }
 }

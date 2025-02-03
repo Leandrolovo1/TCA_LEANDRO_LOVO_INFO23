@@ -5,6 +5,10 @@ public class Produtos {
     private String nome_produto;
     private String categoria_produto;
     private String marca_produto;
+    public Produtos(int id_produto) {
+        this.id_produto = id_produto;
+    }
+
     private float preco_produto;
     private int quantidade;
 

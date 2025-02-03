@@ -33,8 +33,8 @@
                         <DropShadow />
                      </effect>
                   </TableView>
-                  <Button fx:id="idCadastrarProduto" layoutX="400.0" layoutY="480.0" mnemonicParsing="false" onAction="#switchToTela_Cadastrar_Produto" text="Cadastrar Produto" />
-                  <Button layoutX="302.0" layoutY="480.0" mnemonicParsing="false" onAction="#atualizarProduto" text="Alterar Produto" />
+                  <Button fx:id="idCadastrarProduto" layoutX="442.0" layoutY="480.0" mnemonicParsing="false" onAction="#switchToTela_Cadastrar_Produto" text="Cadastrar Produto" />
+                  <Button layoutX="344.0" layoutY="480.0" mnemonicParsing="false" onAction="#atualizarProduto" text="Alterar Produto" />
                   <Button layoutX="14.0" layoutY="492.0" mnemonicParsing="false" onAction="#switchToTela_Principal" text="Tela Principal" />
                   <Label layoutX="287.0" layoutY="14.0" text="Produtos Registrados">
                      <font>
@@ -44,6 +44,7 @@
                         <Glow />
                      </effect>
                   </Label>
+                  <Button layoutX="246.0" layoutY="480.0" mnemonicParsing="false" onAction="#excluirProduto" text="Excluir Produto" />
                </children></AnchorPane>
       </content>
     </Tab>

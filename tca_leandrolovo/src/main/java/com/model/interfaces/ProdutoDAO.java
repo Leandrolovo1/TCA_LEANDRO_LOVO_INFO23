@@ -16,4 +16,5 @@ public interface ProdutoDAO {
     public int registrarVenda(Venda venda) throws SQLException;
     public boolean registrarProdutoVenda(int idVenda, Produtos produto) throws SQLException;
     public boolean atualizarEstoque(Estoque estoque, int id_funcionario);
+    boolean deletarProduto(Produtos produto) throws SQLException;
 }

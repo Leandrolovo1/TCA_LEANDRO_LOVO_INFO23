@@ -97,7 +97,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
     }
 
     public ObservableList<Funcionario> preencher_Tabela_Funcionarios() {
-        String sql = "SELECT id_funcionario, nome, email, telefone, Numero_Vendas FROM Funcionario";
+        String sql = "SELECT id_funcionario, nome, email, telefone, Numero_Vendas FROM Funcionario WHERE ativo = 1";
 
         listaFuncionarios.clear();
 
@@ -122,7 +122,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
     }
 
     public boolean deletarFuncionario(Funcionario funcionario) throws SQLException {
-        String sql = "DELETE FROM Funcionario WHERE id_funcionario =  ?";
+        String sql = "UPDATE Funcionario SET ativo = 0 WHERE Funcionario.id_funcionario = ?";
         try (Connection con = FabricaConexao.faz_Conexao(); PreparedStatement stmt = con.prepareStatement(sql)) {
             stmt.setInt(1, funcionario.getId_funcionario());
 

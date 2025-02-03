@@ -170,6 +170,28 @@ public class ProdutoDAOImpl implements ProdutoDAO {
         }
 
     }
+
+    public boolean deletarProduto(Produtos produto) throws SQLException {
+        String sql = "UPDATE Produto SET ativo = 0 WHERE Produto.id_produto = ?";
+        try (Connection con = FabricaConexao.faz_Conexao(); PreparedStatement stmt = con.prepareStatement(sql)) {
+            stmt.setInt(1, produto.getId_produto());
+
+            int rowsAffected = stmt.executeUpdate();
+            // Verifica se a inserção foi bem-sucedida
+            if (rowsAffected > 0) {
+                return true;
+
+            } else {
+                return false;
+
+            }
+        } catch (Exception e) {
+            // Caso ocorra algum erro, é registrado no log e uma mensagem de erro é exibida
+            Logger.getLogger(FabricaConexao.class.getName()).log(Level.SEVERE, null, e);
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + e.getMessage());
+            return false;
+        }
+    }
 } 
 
         

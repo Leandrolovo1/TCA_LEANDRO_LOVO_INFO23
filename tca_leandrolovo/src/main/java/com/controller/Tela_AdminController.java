@@ -297,6 +297,34 @@ public class Tela_AdminController {
         }
     }
 
+    @FXML
+    public void excluirProduto() throws IOException, SQLException {
+        Produtos produto = Tb_Produtos.getSelectionModel().getSelectedItem();
+        if (produto == null) {
+            JOptionPane.showMessageDialog(null, "Nenhum produto foi selecionado.", "ALERTA",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int mensagemConfirmacao = JOptionPane.showConfirmDialog(null,
+                "Tem certeza que deseja excluir esse produto ?", "ATENÇÃO!", JOptionPane.YES_NO_OPTION,
+                JOptionPane.ERROR_MESSAGE);
+        if (mensagemConfirmacao == JOptionPane.NO_OPTION || mensagemConfirmacao == JOptionPane.CLOSED_OPTION)
+            return;
+
+        int id = produto.getId_produto();
+        Produtos produtoID = new Produtos(id);
+        boolean delete_sucesso = produtoRepository.deletarProduto(produtoID);
+
+        if (delete_sucesso) {
+            listaProdutos.remove(produto);
+            Tb_Funcionarios.getSelectionModel().clearSelection(); // Limpar seleção
+            JOptionPane.showMessageDialog(null, "produto excluído com sucesso.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir produto!");
+        }
+    }
+
     private void configurarColunas_produtos() {
         CL_ID_produto.setCellValueFactory(new PropertyValueFactory<>("id_produto"));
         CL_nome_produto.setCellValueFactory(new PropertyValueFactory<>("nome_produto"));
@@ -345,6 +373,11 @@ public class Tela_AdminController {
     }
     @FXML private void calcularReceitaTotal() {
         float total = calcularReceita();
+        if (total == 0) {
+            JOptionPane.showMessageDialog(null, "Não há receita para exibir.", "Receita Total", JOptionPane.INFORMATION_MESSAGE);
+            return;
+            
+        }
         JOptionPane.showMessageDialog(null, "A receita total é: R$ " + total, "Receita Total", JOptionPane.INFORMATION_MESSAGE);
     }
 }
