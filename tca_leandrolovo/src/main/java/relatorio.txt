@@ -55,4 +55,5 @@ irei preencher a tabela produtos na interface grafica, colocando o total de prod
  tambem coloquei validações para cadastrar produto e funcionario.
 
 *02/02/25 acertei os 2 DELETE de produtos e funcionarios
- *APÓS ESSA DATA EU FIZ COMMITS FAZENDO PEQUENOS AJUSTES E VALIDAÇÕES E COISAS DO TIPO*
+
+ *APÓS ESSA DATA EU FIZ COMMITS FAZENDO PEQUENOS AJUSTES, VALIDAÇÕES E COISAS DO TIPO*

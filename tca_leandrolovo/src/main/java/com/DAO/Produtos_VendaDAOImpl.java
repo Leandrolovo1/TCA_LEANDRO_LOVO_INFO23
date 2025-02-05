@@ -15,7 +15,7 @@ public class Produtos_VendaDAOImpl implements Produtos_VendaDAO {
     private ObservableList<Produtos_Venda> listaReceita = FXCollections.observableArrayList();
 
     public ObservableList<Produtos_Venda> preencher_Tabela_Produtos_Vendas() {
-        String sql = "SELECT * FROM Produtos_venda";
+        String sql = "SELECT * FROM Produtos_venda order by id_venda";
 
         try (Connection con = FabricaConexao.faz_Conexao(); PreparedStatement stmt = con.prepareStatement(sql)) {
             ResultSet rs = stmt.executeQuery(sql);

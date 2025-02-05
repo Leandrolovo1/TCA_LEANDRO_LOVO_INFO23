@@ -76,7 +76,7 @@ public class ProdutoDAOImpl implements ProdutoDAO {
         return listaProdutos;
     }
 
-    public boolean atualizarProduto(Produtos produto, String coluna, int tipo) throws SQLException {
+    public boolean editarProduto(Produtos produto, String coluna, int tipo) throws SQLException {
         String sql = null;
         if (tipo == 1) sql = "UPDATE Produto SET " + coluna + " = ? WHERE id_produto = ? ";
         if (tipo == 2) sql = "UPDATE Estoque SET " + coluna + " = " + coluna + " + ?, `tipo_movimentacao` = 'Entrada', `data_movimentacao` = CURRENT_TIMESTAMP WHERE fk_id_produto = ?";
@@ -134,7 +134,7 @@ public class ProdutoDAOImpl implements ProdutoDAO {
             int rowsAffected = stmt.executeUpdate();
             boolean result = rowsAffected > 0;
             Estoque estoque = new Estoque(produto.getQuantidade(), "Saida");
-            atualizarEstoque(estoque, produto.getId_produto());
+            editarProdutoEstoque(estoque, produto.getId_produto());
             return result;
         } catch (SQLException e) {
             // Caso ocorra algum erro, é registrado no log e uma mensagem de erro é exibida
@@ -144,7 +144,7 @@ public class ProdutoDAOImpl implements ProdutoDAO {
         }
     }
 
-    public boolean atualizarEstoque(Estoque estoque, int id_funcionario)
+    public boolean editarProdutoEstoque(Estoque estoque, int id_funcionario)
     {
         String sql = "INSERT INTO Estoque(fk_id_produto, quantidade, tipo_movimentacao) VALUES (?,?,?)";
         try (Connection con = FabricaConexao.faz_Conexao(); PreparedStatement stmt = con.prepareStatement(sql)) {

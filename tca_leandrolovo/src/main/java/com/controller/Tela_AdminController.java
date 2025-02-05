@@ -180,20 +180,22 @@ public class Tela_AdminController {
         if (opcaoEscolhida == 1) { // categoria
             opcaoCategoriaEscolhida = JOptionPane.showOptionDialog(null, "Escolha uma opção:", "Coluna:",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcaoCategoria, opcaoCategoria[0]);
+            if (opcaoCategoriaEscolhida == -1)
+                return;
             Coluna = opcaoColunas[opcaoEscolhida];
             colunaUpdate = opcaoCategoria[opcaoCategoriaEscolhida];
-            // pegou
             Produtos produtoID = new Produtos(id, colunaUpdate);
-            update_sucesso = produtoRepository.atualizarProduto(produtoID, Coluna, tipo);
+            update_sucesso = produtoRepository.editarProduto(produtoID, Coluna, tipo);
 
         } else if (opcaoEscolhida == 3) {// preco
             Coluna = opcaoColunas[opcaoEscolhida];
             colunaUpdate = JOptionPane.showInputDialog("Digite a alteração");
+            if (colunaUpdate == null)
+                return;
             try {
                 preco = Float.parseFloat(colunaUpdate);
                 Produtos produtoID = new Produtos(id, colunaUpdate);
-                update_sucesso = produtoRepository.atualizarProduto(produtoID, Coluna, tipo);
-                // update_sucesso = produtoRepository.atualizarProduto(produtoID, Coluna, tipo);
+                update_sucesso = produtoRepository.editarProduto(produtoID, Coluna, tipo);
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Entrada inválida. Por favor, insira um número válido.", "ERRO",
                         JOptionPane.ERROR_MESSAGE);
@@ -201,17 +203,31 @@ public class Tela_AdminController {
         } else if (opcaoEscolhida == 4) {// quantidade
             Coluna = opcaoColunas[opcaoEscolhida];
             colunaUpdate = JOptionPane.showInputDialog("Digite a quantidade");
+            if (colunaUpdate == null)
+                return;
             try {
-                quantidade = Integer.parseInt(colunaUpdate);// Atualiza a quantidade do produto com o novo valor
+                quantidade = Integer.parseInt(colunaUpdate);
+                if (quantidade < 0) {
+                    JOptionPane.showMessageDialog(null, "Quantidade inválida. Por favor, insira um número válido.",
+                            "ERRO", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
                 operacaoEscolhida = JOptionPane.showOptionDialog(null, "Escolha uma operacao:", "Operacao:",
                         JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, tipoOperacao, tipoOperacao[0]);
+                if (operacaoEscolhida == -1)
+                    return;
                 if (operacaoEscolhida == 0)
                     tipo = 2; // somar
-                else if (operacaoEscolhida == 1)
+                else if (operacaoEscolhida == 1) {
+                    if (quantidade > produto.getQuantidade()) {
+                        JOptionPane.showMessageDialog(null, "Quantidade inválida. Por favor, insira um número válido.",
+                                "ERRO", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
                     tipo = 3; // diminuir
+                }
                 Produtos produtoID = new Produtos(id, quantidade);
-                update_sucesso = produtoRepository.atualizarProduto(produtoID, Coluna, tipo);
-                // update_sucesso = produtoRepository.atualizarProduto(produtoID, Coluna, tipo);
+                update_sucesso = produtoRepository.editarProduto(produtoID, Coluna, tipo);
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Entrada inválida. Por favor, insira um número válido.", "ERRO",
                         JOptionPane.ERROR_MESSAGE);
@@ -219,54 +235,39 @@ public class Tela_AdminController {
         } else {
             Coluna = opcaoColunas[opcaoEscolhida];
             colunaUpdate = JOptionPane.showInputDialog("Digite a alteração");
+            if (colunaUpdate == null)
+                return;
             Produtos produtoID = new Produtos(id, colunaUpdate);
-            update_sucesso = produtoRepository.atualizarProduto(produtoID, Coluna, 1);
+            update_sucesso = produtoRepository.editarProduto(produtoID, Coluna, 1);
         }
         if (update_sucesso) {
-            // Encontra o índice do produto na lista usando o método indexOf
             int index = listaProdutos.indexOf(produto);
-            // Verifica se o produto foi encontrado na lista (índice diferente de -1
-            // significa que o produto existe na lista)
             if (index != -1) {
-                // Dependendo da coluna que foi escolhida, o código modifica a propriedade
-                // correspondente do produto
-                // Verifica se a coluna escolhida é "nome_produto" e atualiza o nome do produto
                 if (Coluna.equals("nome_produto")) {
-                    produto.setNome_produto(colunaUpdate); // Atualiza o nome do produto com o novo valor (colunaUpdate)
-                }
-                // Verifica se a coluna escolhida é "categoria" e atualiza a categoria do
-                // produto
-                else if (Coluna.equals("categoria")) {
-                    produto.setCategoria_produto(colunaUpdate); // Atualiza o categoria do produto com o novo valor
-                }
-                // Verifica se a coluna escolhida é "marca" e atualiza a marca do
-                // produto
-                else if (Coluna.equals("marca")) {
-                    produto.setMarca_produto(colunaUpdate); // Atualiza o marca do produto com o novo valor
+                    produto.setNome_produto(colunaUpdate);
+                } else if (Coluna.equals("categoria")) {
+                    produto.setCategoria_produto(colunaUpdate);
+                } else if (Coluna.equals("marca")) {
+                    produto.setMarca_produto(colunaUpdate);
                 } else if (Coluna.equals("preco_produto")) {
-                    produto.setPreco_produto(preco); // Atualiza o preco do produto com o novo valor
+                    produto.setPreco_produto(preco);
                 } else if (Coluna.equals("quantidade")) {
                     int quantidadeAtualizada = produto.getQuantidade();
                     if (operacaoEscolhida == 1)
                         quantidadeAtualizada = quantidadeAtualizada - quantidade;
                     else
                         quantidadeAtualizada = quantidadeAtualizada + quantidade;
-                    ;
-                    produto.setQuantidade(quantidadeAtualizada); // Atualiza o preco do produto com o novo valor
+                    produto.setQuantidade(quantidadeAtualizada);
                 }
-                // Atualiza o item na lista (listaProdutos) no índice encontrado, com o
-                // produto modificado
-                listaProdutos.set(index, produto); // Reflete a mudança na tabela (essa mudança será vista na UI
-                                                   // automaticamente)
+                listaProdutos.set(index, produto);
             }
 
-            Tb_Produtos.getSelectionModel().clearSelection(); // Limpar seleção
+            Tb_Produtos.getSelectionModel().clearSelection();
             JOptionPane.showMessageDialog(null, "produto atualizado com sucesso.", "SUCESSO",
                     JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "Erro ao atualizado Produto!", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
-
     }
 
     @FXML
@@ -371,13 +372,17 @@ public class Tela_AdminController {
         }
         return total;
     }
-    @FXML private void calcularReceitaTotal() {
+
+    @FXML
+    private void calcularReceitaTotal() {
         float total = calcularReceita();
         if (total == 0) {
-            JOptionPane.showMessageDialog(null, "Não há receita para exibir.", "Receita Total", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Não há receita para exibir.", "Receita Total",
+                    JOptionPane.INFORMATION_MESSAGE);
             return;
-            
+
         }
-        JOptionPane.showMessageDialog(null, "A receita total é: R$ " + total, "Receita Total", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "A receita total é: R$ " + total, "Receita Total",
+                JOptionPane.INFORMATION_MESSAGE);
     }
 }
