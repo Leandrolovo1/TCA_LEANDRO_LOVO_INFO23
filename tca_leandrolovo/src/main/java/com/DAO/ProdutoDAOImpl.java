@@ -80,7 +80,7 @@ public class ProdutoDAOImpl implements ProdutoDAO {
         String sql = null;
         if (tipo == 1) sql = "UPDATE Produto SET " + coluna + " = ? WHERE id_produto = ? ";
         if (tipo == 2) sql = "UPDATE Estoque SET " + coluna + " = " + coluna + " + ?, `tipo_movimentacao` = 'Entrada', `data_movimentacao` = CURRENT_TIMESTAMP WHERE fk_id_produto = ?";
-        if (tipo == 3) sql = "UPDATE Estoque SET " + coluna + " = " + coluna + " - ?, `tipo_movimentacao` = 'Entrada', `data_movimentacao` = CURRENT_TIMESTAMP WHERE fk_id_produto = ?";
+        if (tipo == 3) sql = "UPDATE Estoque SET " + coluna + " = " + coluna + " - ?, `tipo_movimentacao` = 'Saida', `data_movimentacao` = CURRENT_TIMESTAMP WHERE fk_id_produto = ?";
         try (Connection con = FabricaConexao.faz_Conexao(); PreparedStatement stmt = con.prepareStatement(sql)) {
             if(tipo != 1) stmt.setInt(1, produto.getQuantidade());
             else stmt.setString(1, produto.getNome_produto());
