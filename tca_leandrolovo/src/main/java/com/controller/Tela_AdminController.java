@@ -203,7 +203,7 @@ public class Tela_AdminController {
             }
         } else if (opcaoEscolhida == 4) {// quantidade
             Coluna = opcaoColunas[opcaoEscolhida];
-            colunaUpdate = JOptionPane.showInputDialog(null, "Digite a Quantidade:", "Alterar Preço",
+            colunaUpdate = JOptionPane.showInputDialog(null, "Digite a Quantidade:", "Alterar Quantidade",
                     JOptionPane.QUESTION_MESSAGE);
             if (colunaUpdate == null || colunaUpdate.trim().isEmpty())
                 return;
