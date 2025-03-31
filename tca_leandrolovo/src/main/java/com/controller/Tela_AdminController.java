@@ -175,11 +175,13 @@ public class Tela_AdminController {
         String[] tipoOperacao = { "SOMAR", "SUBTRAIR" };
         opcaoEscolhida = JOptionPane.showOptionDialog(null, "Escolha uma opção:", "Coluna:",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcaoColunas, opcaoColunas[0]);
-        if (opcaoEscolhida == -1) return;
+        if (opcaoEscolhida == -1)
+            return;
         if (opcaoEscolhida == 1) { // categoria
             opcaoCategoriaEscolhida = JOptionPane.showOptionDialog(null, "Escolha uma opção:", "Coluna:",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcaoCategoria, opcaoCategoria[0]);
-            if (opcaoCategoriaEscolhida == -1) return;
+            if (opcaoCategoriaEscolhida == -1)
+                return;
             Coluna = opcaoColunas[opcaoEscolhida];
             colunaUpdate = opcaoCategoria[opcaoCategoriaEscolhida];
             Produtos produtoID = new Produtos(id, colunaUpdate);
@@ -187,9 +189,10 @@ public class Tela_AdminController {
 
         } else if (opcaoEscolhida == 3) {// preco
             Coluna = opcaoColunas[opcaoEscolhida];
-            colunaUpdate = JOptionPane.showInputDialog(null, "Digite o novo Preço:", "Alterar Preço", JOptionPane.QUESTION_MESSAGE);
-            if (colunaUpdate == null || colunaUpdate.trim().isEmpty()) return;
-            System.out.println(colunaUpdate + "pegou");
+            colunaUpdate = JOptionPane.showInputDialog(null, "Digite o novo Preço:", "Alterar Preço",
+                    JOptionPane.QUESTION_MESSAGE);
+            if (colunaUpdate == null || colunaUpdate.trim().isEmpty())
+                return;
             try {
                 preco = Float.parseFloat(colunaUpdate);
                 Produtos produtoID = new Produtos(id, colunaUpdate);
@@ -200,9 +203,10 @@ public class Tela_AdminController {
             }
         } else if (opcaoEscolhida == 4) {// quantidade
             Coluna = opcaoColunas[opcaoEscolhida];
-            colunaUpdate = JOptionPane.showInputDialog(null,"Digite a Quantidade:", "Alterar Preço", JOptionPane.QUESTION_MESSAGE);
-            if (colunaUpdate == null ||colunaUpdate.trim().isEmpty()) return;
-            System.out.println(colunaUpdate + "pegou");
+            colunaUpdate = JOptionPane.showInputDialog(null, "Digite a Quantidade:", "Alterar Preço",
+                    JOptionPane.QUESTION_MESSAGE);
+            if (colunaUpdate == null || colunaUpdate.trim().isEmpty())
+                return;
             try {
                 quantidade = Integer.parseInt(colunaUpdate);
                 if (quantidade < 0) {
@@ -212,7 +216,8 @@ public class Tela_AdminController {
                 }
                 operacaoEscolhida = JOptionPane.showOptionDialog(null, "Escolha uma operação:", "Operação:",
                         JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, tipoOperacao, tipoOperacao[0]);
-                if (operacaoEscolhida == -1)return;
+                if (operacaoEscolhida == -1)
+                    return;
                 if (operacaoEscolhida == 0)
                     tipo = 2; // somar
                 else if (operacaoEscolhida == 1) {
@@ -231,16 +236,17 @@ public class Tela_AdminController {
             }
         } else {
             Coluna = opcaoColunas[opcaoEscolhida];
-            colunaUpdate = JOptionPane.showInputDialog(null,"Digite a alteração", "Alterar:", JOptionPane.QUESTION_MESSAGE);
-            if (colunaUpdate == null ||colunaUpdate.trim().isEmpty()) return;
-            System.out.println(colunaUpdate + "pegou");
+            colunaUpdate = JOptionPane.showInputDialog(null, "Digite a alteração", "Alterar:",
+                    JOptionPane.QUESTION_MESSAGE);
+            if (colunaUpdate == null || colunaUpdate.trim().isEmpty())
+                return;
             Produtos produtoID = new Produtos(id, colunaUpdate);
             update_sucesso = produtoRepository.editarProduto(produtoID, Coluna, 1);
         }
         if (update_sucesso) {
             int index = listaProdutos.indexOf(produto);
             if (index != -1) {
-                if (Coluna.equals("nome_produto")) { 
+                if (Coluna.equals("nome_produto")) {
                     produto.setNome_produto(colunaUpdate);
                 } else if (Coluna.equals("categoria")) {
                     produto.setCategoria_produto(colunaUpdate);
